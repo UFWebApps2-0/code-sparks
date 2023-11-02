@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   getActivityToolboxAll,
 } from "../../../Utils/requests"
+import {BadgeSelection} from '../../../Challenges/BadgeSelection.jsx'
 
 export default function ChallengeCreation() {
   const defaultChallengeData = {
@@ -18,6 +19,7 @@ export default function ChallengeCreation() {
   const [challengeData, setChallengeData] = useState(defaultChallengeData);
   const [value] = useGlobalState('currUser');
   const navigate = useNavigate();
+  const [selectedBadge, setSelectedBadge] = useState(null);
 
   const handleViewActivityTemplate = async () => {
     // FIXME: Navigate with specific SELECTED information
@@ -65,6 +67,7 @@ export default function ChallengeCreation() {
           >
             <Form.Item id="form-label">
               <p>PLACEHOLDER FOR BADGE SELECTION</p>
+              <BadgeSelection onBadgeSelect={setSelectedBadge}/>
             </Form.Item>
             <Form.Item id="form-label" label="Challenge Title">
               <Input.TextArea

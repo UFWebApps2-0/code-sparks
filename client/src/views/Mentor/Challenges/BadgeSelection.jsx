@@ -72,7 +72,7 @@ function badgeSelection ({onBadgeSelect})
         setBadgeID(newIndex);
     }
 
-    //Function to select current badge, and pass to parent component
+    //Function to select current badge, and pass to parent component, to use
     const selectBadge = () => {
         const selectedBadge = badgeImages[currentBadgeID];
         onBadgeSelect(selectedBadge);
