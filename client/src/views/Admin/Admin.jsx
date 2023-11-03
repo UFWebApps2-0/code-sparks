@@ -10,7 +10,7 @@ export default function Admin(props) {
     <div className="container nav-padding">
       <NavBar />
       <div id="about-content-container">
-        <h1 id="title">About CASMM</h1>
+        <h1 id="title">THE NEW ADMIN PAGE</h1>
         <div id="logos" className="flex space-between">
           <img src={UF} alt="uf" />
           <img src={NSF} alt="nsf" />

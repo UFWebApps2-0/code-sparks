@@ -17,6 +17,11 @@ export const getCurrUser = () => {
       role: 'ContentCreator',
       name: result.role.name,
     };
+  } else if (result.role.type === 'admin') {
+    return {
+      role: 'Admin',
+      name: result.role.name,
+    };
   } else if (result.role.type === 'researcher') {
     return {
       role: 'Researcher',
@@ -27,7 +32,7 @@ export const getCurrUser = () => {
       role: 'Mentor',
       name: result.role.name,
     };
-  }
+  } 
 };
 
 const { setGlobalState, useGlobalState } = createGlobalState({

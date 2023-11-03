@@ -26,7 +26,6 @@ const App = () => {
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/admin' element={<Admin />} />
         <Route path='/about' element={<About />} />
         <Route path='/teacherlogin' element={<TeacherLogin />} />
         <Route path='/forgot-password' element={<ForgetPassword />} />
@@ -40,6 +39,14 @@ const App = () => {
             <PrivateRoute>
               <Report />
             </PrivateRoute>
+          }
+        />
+        <Route
+          path='/admin'
+          element={
+            // <PrivateRoute>
+              <Admin />
+            // </PrivateRoute>
           }
         />
         <Route
