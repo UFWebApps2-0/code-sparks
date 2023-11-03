@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   getActivityToolboxAll,
 } from "../../../Utils/requests"
-import badgeSelection from '../../../views/Mentor/Challenges/BadgeSelection.jsx'
+import BadgeSelection from '../../../views/Mentor/Challenges/BadgeSelection.jsx'
 
 export default function ChallengeCreation() {
   const defaultChallengeData = {
@@ -54,6 +54,7 @@ export default function ChallengeCreation() {
       <div id='creation-container-grid'>
         <div id='creation-container'>
           <p></p>
+
           <Form
             id="challenge-detail-editor"
             layout="horizontal"
@@ -65,10 +66,9 @@ export default function ChallengeCreation() {
               span: 14,
             }}
           >
-            <Form.Item id="form-label">
-              <p>PLACEHOLDER FOR BADGE SELECTION</p>
-              <badgeSelection onBadgeSelect={setSelectedBadge}/>
-            </Form.Item>
+
+
+
             <Form.Item id="form-label" label="Challenge Title">
               <Input.TextArea
                 onChange={e => setChallengeData({...challengeData, name: e.target.value})}
@@ -77,7 +77,8 @@ export default function ChallengeCreation() {
                 placeholder="Enter challenge title..."
               ></Input.TextArea>
             </Form.Item>
-            
+
+
             <Form.Item id="form-label" label="Challenge Description">
               <Input.TextArea
                 onChange={e => setChallengeData({...challengeData, description: e.target.value})}
@@ -95,12 +96,18 @@ export default function ChallengeCreation() {
             >
               <button onClick={handleViewActivityTemplate}>Edit Challenge Activity</button>
             </Form.Item>
+
+
             <Form.Item
               id="form-label"
               wrapperCol={{
                 span: 30,
               }}
             >
+              <Form.Item id='form-label' style={{ marginBottom: '20px' }}>
+                <BadgeSelection onBadgeSelect={setSelectedBadge} />
+              </Form.Item>
+
               <button onClick={handleSave}>Save Challenge</button>
               <button onClick={navigateToAssignChallenge}>Continue Assigning Challenge to Classrooms</button>
             </Form.Item>
