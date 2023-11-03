@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './Utils/PrivateRoute';
 import About from './views/About/About';
+import Admin from './views/Admin/Admin';
 import BlocklyPage from './views/BlocklyPage/BlocklyPage';
 import BugReport from './views/BugReport/BugReport';
 import ContentCreator from './views/ContentCreator/ContentCreator';
@@ -25,6 +26,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/about' element={<About />} />
         <Route path='/teacherlogin' element={<TeacherLogin />} />
         <Route path='/forgot-password' element={<ForgetPassword />} />
