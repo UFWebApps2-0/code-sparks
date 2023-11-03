@@ -8,6 +8,7 @@ import ContentCreator from './views/ContentCreator/ContentCreator';
 import Home from './views/Home/Home';
 import Classroom from './views/Mentor/Classroom/Classroom';
 import Dashboard from './views/Mentor/Dashboard/Dashboard';
+import TeacherProfile from './views/Mentor/TeacherProfile/TeacherProfile';
 import NotFound from './views/NotFound';
 import Replay from './views/Replay/Replay';
 import ActivityLevelReport from './views/Researcher/ActivityLevelReport';
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/teacherlogin' element={<TeacherLogin />} />
+        <Route path='/teacherprofile' element={<TeacherProfile />} />
         <Route path='/forgot-password' element={<ForgetPassword />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/login' element={<StudentLogin />} />
