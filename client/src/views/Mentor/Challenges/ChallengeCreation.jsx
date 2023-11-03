@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   getActivityToolboxAll,
 } from "../../../Utils/requests"
-import {BadgeSelection} from '../../../Challenges/BadgeSelection.jsx'
+import badgeSelection from '../../../views/Mentor/Challenges/BadgeSelection.jsx'
 
 export default function ChallengeCreation() {
   const defaultChallengeData = {
@@ -67,7 +67,7 @@ export default function ChallengeCreation() {
           >
             <Form.Item id="form-label">
               <p>PLACEHOLDER FOR BADGE SELECTION</p>
-              <BadgeSelection onBadgeSelect={setSelectedBadge}/>
+              <badgeSelection onBadgeSelect={setSelectedBadge}/>
             </Form.Item>
             <Form.Item id="form-label" label="Challenge Title">
               <Input.TextArea

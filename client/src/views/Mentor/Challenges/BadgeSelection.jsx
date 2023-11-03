@@ -1,7 +1,7 @@
 //Import stuff
 import React, { useEffect, useRef, useState, useReducer } from 'react';
-import Badge1 from "../../Images/Badge1.jpg";
-import Badge2 from "../../Images/Badge2.jpg";
+import Badge1 from "../../../Images/Badge1.jpg";
+import Badge2 from "../../../Images/Badge2.jpg";
 //https://pusher.com/blog/getting-started-with-react-router-v4/#application-structure
 //https://stackoverflow.com/questions/49728705/adding-new-page-to-reactjs-template
 
@@ -38,7 +38,7 @@ function badgeSelection ({onBadgeSelect})
     const leftArrowStyles = {
         position: "absolute",
         top: "50%",
-        transform: "translated(0, -50%",
+        transform: "translated(0, -50%)",
         left: "32px",
         fontSize: '45px',
         color: "#fff",
@@ -50,7 +50,7 @@ function badgeSelection ({onBadgeSelect})
     const rightArrowStyles = {
         position: "absolute",
         top: "50%",
-        transform: "translated(0, -50%",
+        transform: "translated(0, -50%)",
         left: "32px",
         fontSize: '45px',
         color: "#fff",
