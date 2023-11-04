@@ -13,7 +13,7 @@
     "TeacherProfile": "/teacherprofile"
   },
   "users": {
-    "DefaultUser": ["Home", "TeacherLogin", "Sandbox", "About", "TeacherProfile"],
+    "DefaultUser": ["Home", "TeacherLogin", "Sandbox", "About"],
     "Mentor": ["Dashboard", "AccountInfo", "SignOut", "Sandbox", "BugReport","TeacherProfile"],
     "Student": ["SignOut"],
     "ContentCreator": [
