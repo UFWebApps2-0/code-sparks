@@ -112,6 +112,14 @@ export const getMentor = async () =>
     error: 'Your classroom manager information could not be retrieved.',
   });
 
+  export const getMentorProfilePicture = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/classroom-managers/me/profile_picture`,
+    auth: true,
+    error: 'Your classroom manager information could not be retrieved.',
+  });
+
 export const getClassroom = async (id) =>
   makeRequest({
     method: GET,

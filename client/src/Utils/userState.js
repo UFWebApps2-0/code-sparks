@@ -26,7 +26,7 @@ export const getCurrUser = () => {
     return {
       role: 'Mentor',
       name: result.role.name,
-      img: result.role.profile_picture
+      profile_picture: result.role.profile_picture
     };
   }
 };
