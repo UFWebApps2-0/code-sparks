@@ -2,19 +2,22 @@ import React from "react";
 import NavBar from "../../../components/NavBar/NavBar";
 import './StudentProfile.less';
 import Logo from '../../../assets/default.png';//
-import { getCurrUser} from '../../../Utils/userState';
-//import { getTeachers} from '../../../Utils/requests';
-import { getCurrUser} from '../../../Utils/userState';
+import { getStudents } from '../../../Utils/requests';
+import { getStudent } from '../../../Utils/requests';
+import { getCurrentStudent } from '../../../Utils/requests';
+
+
+let currentStudent = await getCurrentStudent();
 
 
 export default function StudentProfile(props) {
-  console.log(getCurrUser());
+
 
   return (
     <div className="container nav-padding">
       <NavBar />
       <div>
-          <img class="profile_picture_styling" src={Logo} alt="Profile Picture" />
+          <img class="profile_picture_styling" src={currentStudent.data.students[0].profile_picture} alt="Profile Picture" />
         
       </div>
 

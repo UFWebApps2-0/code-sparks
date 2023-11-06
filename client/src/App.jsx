@@ -9,6 +9,7 @@ import Home from './views/Home/Home';
 import Classroom from './views/Mentor/Classroom/Classroom';
 import Dashboard from './views/Mentor/Dashboard/Dashboard';
 import TeacherProfile from './views/Mentor/TeacherProfile/TeacherProfile';
+import StudentProfile from './views/Student/StudentProfile/StudentProfile';
 import ChallengeView from './views/Mentor/ChallengeView/ChallengeView';
 import NotFound from './views/NotFound';
 import Replay from './views/Replay/Replay';
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/teacherlogin' element={<TeacherLogin />} />
         <Route path='/teacherprofile' element={<TeacherProfile />} />
+        <Route path='/studentprofile' element={<StudentProfile />} />
         <Route path='/challengeview' element={<ChallengeView />} />
         <Route path='/forgot-password' element={<ForgetPassword />} />
         <Route path='/reset-password' element={<ResetPassword />} />
