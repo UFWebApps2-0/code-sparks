@@ -2,8 +2,15 @@ import React from "react";
 import NavBar from "../../../components/NavBar/NavBar";
 import './TeacherProfile.less';
 import Logo from '../../../assets/default.png';
+import { getToken} from '../../../Utils/AuthRequests';
+import { getCurrUser} from '../../../Utils/userState';
+//import { getTeachers} from '../../../Utils/requests';
+
+
 
 export default function TeacherProfile(props) {
+
+
   return (
     <div className="container nav-padding">
       <NavBar />

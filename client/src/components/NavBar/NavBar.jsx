@@ -93,6 +93,7 @@ export default function NavBar() {
           &nbsp; Profile
         </Menu.Item>
       ) : null}
+      
       {shouldShowRoute('About') ? (
         <Menu.Item key='8' onClick={() => handleRouteChange(routes.About)}>
           <i className='fa fa-info-circle' />
@@ -109,6 +110,12 @@ export default function NavBar() {
         <Menu.Item key='10' onClick={() => handleLogout()}>
           <i className='fa fa-sign-out-alt' />
           &nbsp; Sign Out
+        </Menu.Item>
+      ) : null}
+      {shouldShowRoute('StudentProfile') ? (
+        <Menu.Item key='7' onClick={() => handleRouteChange(routes.StudentProfile)}>
+          <i className='fa fa-user-alt' />
+          &nbsp; Profile
         </Menu.Item>
       ) : null}
       

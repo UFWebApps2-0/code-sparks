@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import { getStudentClassroom } from '../../Utils/requests';
 import './Student.less';
-
+import { getStudent} from '../../Utils/requests';
+console.log(getStudent())
+// client/src/Utils/userState.js
 function Student() {
   const [learningStandard, setLessonModule] = useState({});
   const navigate = useNavigate();
@@ -35,6 +37,7 @@ function Student() {
   return (
     <div className='container nav-padding'>
       <NavBar />
+      <div>HELLO WORLD</div>
       <div id='activity-container'>
         <div id='header'>
           <div>Select your Activity</div>
