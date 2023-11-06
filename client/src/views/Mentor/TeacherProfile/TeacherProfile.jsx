@@ -4,9 +4,9 @@ import './TeacherProfile.less';
 import Logo from '../../../assets/default.png';
 import { getToken} from '../../../Utils/AuthRequests';
 import { getCurrUser} from '../../../Utils/userState';
-//import { getTeachers} from '../../../Utils/requests';
+import { getMentor} from '../../../Utils/requests';
 
-
+console.log(getCurrUser());
 
 export default function TeacherProfile(props) {
 
