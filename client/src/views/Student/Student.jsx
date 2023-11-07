@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import { getStudentClassroom } from '../../Utils/requests';
 import './Student.less';
@@ -8,6 +8,8 @@ import './Student.less';
 function Student() {
   const [learningStandard, setLessonModule] = useState({});
   const navigate = useNavigate();
+ 
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,10 +34,19 @@ function Student() {
     navigate('/workspace');
   };
 
+
+
+  const studentName = localStorage.getItem('studentName');
+  const tempBadges = ['Badge0, Badge1, Badge2'];
+
+
   return (
+    
     <div className='container nav-padding'>
       <NavBar />
+      <div id ='student-name'>Welcome back, {studentName}</div>
       <div id='activity-container'>
+        
         <div id='header'>
           <div>Select your Activity</div>
         </div>
@@ -62,6 +73,20 @@ function Student() {
           )}
         </ul>
       </div>
+      
+      <div id = 'temp-container'>
+      <div id = 'header1'>
+        <div>Achievements</div>
+        </div>
+      
+      <ul id = 'badgetemp-container'>
+          {tempBadges.map((item, index) =>(
+            <li key={index}>{item}</li>
+          ))}
+          </ul>
+
+      </div>
+
     </div>
   );
 }
