@@ -2,19 +2,12 @@
 import React, { useEffect, useRef, useState, useReducer } from 'react';
 import Badge1 from "../../../Images/Badge1.jpg";
 import Badge2 from "../../../Images/Badge2.jpg";
-//https://pusher.com/blog/getting-started-with-react-router-v4/#application-structure
-//https://stackoverflow.com/questions/49728705/adding-new-page-to-reactjs-template
-
-//Image carousel video = https://www.youtube.com/watch?v=SK9AlIbexOE
-
-//http://localhost:3000/challenge-creation
 
 //Function component to select/view badges
 function BadgeSelection ({onBadgeSelect})
 {
     //State variable to keep track of current badge using ID
     const [currentBadgeID, setBadgeID] = useState(0);
-    //const [selectedBadgeID, setSelectedBadgeID] = useState(0);
     //Array of badge images - will add more later as I draw them
     const badgeImages = [Badge1, Badge2];
 
@@ -47,7 +40,7 @@ function BadgeSelection ({onBadgeSelect})
         color: "black",
         zIndex: 1000,
         cursor: "pointer",
-        //content: "<",
+
     }
 
     //Right arrow style to navigate from each badge
@@ -60,7 +53,7 @@ function BadgeSelection ({onBadgeSelect})
         color: 'black',
         zIndex: 1000,
         cursor: "pointer",
-        //content: ">",
+
     }
 
     //Function to navigate to previous badge
@@ -79,17 +72,15 @@ function BadgeSelection ({onBadgeSelect})
 
     //Function to select current badge, and pass to parent component, to use
     const selectBadge = () => {
+        //Console log to show button is working
         console.log("Button pressed");
-        //Christina doesn't want entire image, wants just the badge ID
-        //const selectedBadge = badgeImages[currentBadgeID];
         onBadgeSelect(currentBadgeID);
     }
 
     //Make button appear over other things
     const buttonStyle = {
         zIndex: 2000,
-        //marginRight: '10px',
-        //marginLeft: '10px',
+
 
     }
     //Fixing sonarcloud bug
@@ -104,8 +95,6 @@ function BadgeSelection ({onBadgeSelect})
             goToNext();
         }
     }
-
-
 
     //Render the badge selection on page
     //*Needed to change the way of displaying arrows, use unicode
