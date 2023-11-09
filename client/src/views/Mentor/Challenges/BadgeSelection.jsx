@@ -92,6 +92,31 @@ function BadgeSelection ({onBadgeSelect})
         //marginLeft: '10px',
 
     }
+    //Fixing sonarcloud bug
+    const keyboardListener = (event) => {
+        //Left and right arrows
+        if (event.key === 'leftArrow')
+        {
+            goToPrevious();
+        }
+        else if (event.key === 'rightArrow')
+        {
+            goToNext();
+        }
+    }
+
+    //Add the event listener
+    useEffect(()=> {
+        //Add event listener for pressing key down
+        window.addEventListener('keydown', keyboardListener);
+
+        //Remove the event listener
+        return () => {
+            window.removeEventListener('keydown', keyboardListener);
+        };
+
+
+    });
 
     //Render the badge selection on page
     //*Needed to change the way of displaying arrows, use unicode
