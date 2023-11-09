@@ -105,28 +105,17 @@ function BadgeSelection ({onBadgeSelect})
         }
     }
 
-    //Add the event listener
-    useEffect(()=> {
-        //Add event listener for pressing key down
-        window.addEventListener('keydown', keyboardListener);
 
-        //Remove the event listener
-        return () => {
-            window.removeEventListener('keydown', keyboardListener);
-        };
-
-
-    });
 
     //Render the badge selection on page
     //*Needed to change the way of displaying arrows, use unicode
     return (
         <div style={sliderStyles}>
-            <div style={leftArrowStyles} onClick={goToPrevious}>&#9664;</div>
+            <div style={leftArrowStyles} onClick={goToPrevious} onKeyDown={keyboardListener}>&#9664;</div>
             <div>
                 <div style={badgeStyles}></div>
             </div>
-            <div style={rightArrowStyles} onClick={goToNext}>&#9654;</div>
+            <div style={rightArrowStyles} onClick={goToNext} onKeyDown={keyboardListener}>&#9654;</div>
             <div>
                 <button onClick={selectBadge}>Select the badge</button>
             </div>
