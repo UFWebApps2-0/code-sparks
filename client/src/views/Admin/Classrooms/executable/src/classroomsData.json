@@ -1,4 +1,3 @@
-// this is my mock data that the classrooms webpage currently runs on; my next step is getting it to work with strapi data
 [
     {
       "id" : 1,
