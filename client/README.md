@@ -48,7 +48,7 @@ Stars a basic http server (using [http-server](https://www.npmjs.com/package/htt
 Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<br />
+<br />+
 
 ## Styling
 
