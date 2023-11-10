@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMentor, getClassrooms } from '../../../Utils/requests';
+import { getMentor, getClassrooms, getAdmin } from '../../../Utils/requests';
 import { message } from 'antd';
 import './Dashboard.less';
 import DashboardDisplayCodeModal from './DashboardDisplayCodeModal';
@@ -16,7 +16,13 @@ export default function Dashboard() {
   useEffect(() => {
     let classroomIds = [];
     getMentor().then((res) => {
+      console.log('Mentor Response:', res);
       if (res.data) {
+        // ADMIN LOGIN UPDATE 
+        if (res.data.role === 'Admin') {
+          navigate('/admin');
+          return;
+        }
         res.data.classrooms.forEach((classroom) => {
           classroomIds.push(classroom.id);
         });
