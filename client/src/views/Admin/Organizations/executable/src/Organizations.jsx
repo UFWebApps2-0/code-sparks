@@ -7,13 +7,11 @@ function Organizations() {
   return(
     <div>
       <h1 className="organizations-header">Organizations</h1>
-      <div className="App">
-      
       {
         organizations && organizations.map( org => {
           return(
              <div className="box" key={ org.id }>
-              <strong>{ org.orgName }</strong> <br />
+              <strong>{ org.orgName }</strong>
               <div>County: { org.county } </div>
               <div>State: { org.state }</div>
               <div>Number of Classrooms: { org.classrooms.length }</div>
@@ -38,11 +36,8 @@ function Organizations() {
           )
         })
       }
-
       </div>
-    </div>
   );
 }
 
 export default Organizations;
-
