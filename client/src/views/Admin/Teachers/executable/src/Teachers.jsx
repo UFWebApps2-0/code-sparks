@@ -6,7 +6,7 @@ function Teachers() {
   
   return(
     <div>
-      <h1 className="app-header">Teachers</h1>
+      <h1 className="teachers-header">Teachers</h1>
       <div className="App">
       
       {
