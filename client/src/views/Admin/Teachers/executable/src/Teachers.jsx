@@ -13,7 +13,7 @@ function Teachers() {
         teachers && teachers.map( course => {
           return(
              <div className="box" key={ course.id }>
-              <strong>{ course.teacher.firstName } { course.teacher.lastName}</strong> <br />
+              <strong>{ course.teacher.firstName } { course.teacher.lastName}</strong>
               <div>Classes: { course.courseName }</div>
               <div>Number of Students: { course.students.length }</div>
                <br />
