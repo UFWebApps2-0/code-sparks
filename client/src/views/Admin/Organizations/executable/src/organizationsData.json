@@ -1,0 +1,54 @@
+[
+    {
+      "id" : 1,
+      "orgName": "Gainesville Elementary School",
+      "county": "Alachua",
+      "state": "Florida",
+      "classrooms": [],
+      "mentors": []
+    },
+    {
+        "id" : 2,
+        "orgName": "Hogwarts",
+        "county": "Northumberland",
+        "state": "Scotland",
+        "classrooms": [ 
+            {
+                "classroomName": "Defense Against the Dark Arts"
+            },
+            {
+                "classroomName": "Potions"
+            }
+        ],
+        "mentors": [
+            {
+                "firstName": "Albus",
+                "lastName": "Dumbledore"
+            }
+        ]
+    },
+    {
+        "id" : 3,
+        "orgName": "University of Florida",
+        "county": "Alachua",
+        "state": "Florida",
+        "classrooms": [
+            {
+                "classroomName": "Mr. Keating's 5th Grade Class"
+            },
+            {
+                "classroomName": "Mr. Keating's 6th Grade Class"
+            }
+        ],
+        "mentors": [
+            {
+                "firstName": "John",
+                "lastName": "Keating"
+            },
+            {
+                "firstName": "Basic",
+                "lastName": "Mentor"
+            }
+        ]
+    }
+]
