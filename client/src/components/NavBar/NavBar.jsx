@@ -90,7 +90,8 @@ export default function NavBar() {
       ) : null}
       {shouldShowRoute('TeacherProfile') ? (
         <Menu.Item key='7' onClick={() => handleRouteChange(routes.TeacherProfile)}
-        ><i className='fa fa-user-alt' />
+        >
+          <i className='fa fa-user-alt' />
           &nbsp; Profile
         </Menu.Item>
       ) : null}
