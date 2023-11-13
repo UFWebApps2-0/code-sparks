@@ -3,6 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './Utils/PrivateRoute';
 import About from './views/About/About';
 import Admin from './views/Admin/Admin';
+import Teachers from './views/Admin/Teachers/executable/src/Teachers';
+import Classrooms from './views/Admin/Classrooms/executable/src/Classrooms';
+import Organizations from './views/Admin/Organizations/executable/src/Organizations';
 import BlocklyPage from './views/BlocklyPage/BlocklyPage';
 import BugReport from './views/BugReport/BugReport';
 import ContentCreator from './views/ContentCreator/ContentCreator';
@@ -33,7 +36,6 @@ const App = () => {
         <Route path='/login' element={<StudentLogin />} />
         <Route path='/replay/:saveID' element={<Replay />} />
         <Route path='/sandbox' element={<BlocklyPage isSandbox={true} />} />
-        <Route path='/admin' element={<Admin />} />
         <Route
           path='/report'
           element={
@@ -42,14 +44,20 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* <Route
+        <Route
           path='/admin'
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Admin />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
-        /> */}
+        />
+        <Route path='/organizationlist' element={<Organizations />} />
+        <Route path='/classroomlist' element={<Classrooms />} />
+        <Route path='/lessonlist' element={<About />} />
+        <Route path='/teacherlist' element={<Teachers />} />
+
+
         <Route
           path='/activityLevel'
           element={

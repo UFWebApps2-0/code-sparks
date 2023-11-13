@@ -42,7 +42,6 @@ export default function NavBar() {
           &nbsp; Dashboard
         </Menu.Item>
       ) : null}
-      {/* MY ADMIN EDITS  */}
       {shouldShowRoute('Admin') ? (
         <Menu.Item key='0' onClick={() => handleRouteChange(routes.Admin)}>
           <i className='fa fa-home' />
