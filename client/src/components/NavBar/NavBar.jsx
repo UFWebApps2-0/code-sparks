@@ -77,7 +77,7 @@ export default function NavBar() {
           key='5'
           onClick={() => handleRouteChange(routes.TeacherLogin)}
         >
-          <i className='fa fa-sign-in-alt' />
+         
           &nbsp; User Login
         </Menu.Item>
       ) : null}
