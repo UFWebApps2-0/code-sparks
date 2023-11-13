@@ -4,6 +4,7 @@ import './TeacherProfile.less';
 import default_profile from '../../../assets/default.png';
 import { getMentor} from '../../../Utils/requests';
 
+//gets the current signed in user to get their profile picture
 let teacher_profile_picture = default_profile;
 let teacher_profile = await getMentor();
 

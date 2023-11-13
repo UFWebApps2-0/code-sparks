@@ -609,6 +609,9 @@
                 "last_name": {
                   "type": "string"
                 },
+                "profile_picture": {
+                  "type": "string"
+                },
                 "school": {
                   "type": "string"
                 },
@@ -620,6 +623,9 @@
                 },
                 "user": {
                   "type": "string"
+                },
+                "p": {
+                  "type": "object"
                 },
                 "created_by": {
                   "type": "string"
