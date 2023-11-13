@@ -23,7 +23,6 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
     switch (method) {
       case GET:
         res = (await axios.get(path, config)).data;
-        console.log(res);
         break;
       case POST:
         res = (await axios.post(path, data, config)).data;
@@ -111,14 +110,6 @@ export const getMentor = async () =>
     path: `${server}/classroom-managers/me`,
     auth: true,
     error: 'Your classroom manager information could not be retrieved.',
-  });
-
-  export const getAdmin = async () =>
-  makeRequest({
-    method: GET,
-    path: `${server}/admin`,
-    auth: true,
-    error: 'Your admin information could not be retrieved.',
   });
 
 export const getClassroom = async (id) =>
