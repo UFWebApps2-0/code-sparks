@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react"
+import NSF from "../../assets/nsf_logo.png"
+import TAMU from "../../assets/tamu_logo.png"
+import UF from "../../assets/uf_logo.png"
 import NavBar from "../../components/NavBar/NavBar"
 import Sidebar from "./Components/Sidebar"
 import EditButtons from "./Components/EditButtons"
 import Cards from "./Components/Cards"
 import "./Admin.less"
 
-function Admin() {
-  console.log('Admin component rendered');
+export default function Admin(props) {
   return (
-    <div className='container nav-padding'>
+    <div className="container nav-padding">
       <NavBar />
       <h1>Welcome Admin!</h1>
       <Sidebar/>
@@ -16,8 +18,10 @@ function Admin() {
       {/* <div><Cards /></div>
       <div><Cards /></div>
       <div><Cards /></div> */}
-    </div>
-  );
-}
 
-export default Admin;
+      <div>
+        <EditButtons/>
+      </div>
+    </div>
+  )
+}
