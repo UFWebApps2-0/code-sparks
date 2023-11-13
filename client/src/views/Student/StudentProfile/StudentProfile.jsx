@@ -13,8 +13,8 @@ export default function StudentProfile(props) {
     <div className="container nav-padding">
       <NavBar />
 
-      <div class = "student_styling">
-          <img class="profile_picture_styling" src={currentStudent.data.students[0].profile_picture} alt="Profile Picture" />
+      <div className = "student_styling">
+          <img className="profile_picture_styling" src={currentStudent.data.students[0].profile_picture} alt="Profile Picture" />
         
       </div>
 

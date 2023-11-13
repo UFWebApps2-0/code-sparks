@@ -2,9 +2,8 @@ import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
-import { getStudentClassroom } from '../../Utils/requests';
 import './Student.less';
-import { getStudent} from '../../Utils/requests';
+import { getStudent, getStudentClassroom} from '../../Utils/requests';
 console.log(getStudent())
 // client/src/Utils/userState.js
 function Student() {

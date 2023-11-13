@@ -18,13 +18,13 @@ export default function TeacherProfile(props) {
     <div className="container nav-padding">
       <NavBar />
       <div>
-        <div class = "teacher_styling" >
-          <img class="profile_picture_styling" src={teacher_profile_picture} alt="Profile Picture" />
+        <div className = "teacher_styling" >
+          <img className="profile_picture_styling" src={teacher_profile_picture} alt="Profile Picture" />
         </div>       
-        <div class = " teacher_styling teacher_buttons">
+        <div className = " teacher_styling teacher_buttons">
           <h1>Challenge View</h1>
           </div>
-        <div class = "teacher_styling teacher_buttons">
+        <div className = "teacher_styling teacher_buttons">
          <h1>Create New Assignment</h1>
         </div>
       </div>
