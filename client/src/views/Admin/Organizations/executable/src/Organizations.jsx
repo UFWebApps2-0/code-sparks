@@ -1,5 +1,5 @@
-/* this is my .jsx file i developed on my own for the Organizations list page, a lot of which I reused from my Classrooms.jsx file. I did not give anyone permission to directly copy from 
-my code at any point and had this all done before 11/13. */
+/* this is my .jsx file i developed on my own for the Organizations list page, a lot of which I reused from my Classrooms.jsx file. I did not give anyone permission to directly copy significant portions 
+from this code without letting me know first. */
 import './Organizations.css';
 /* here I imported my mock data (which is identical to the data on strapi, but still created by me in a json file) for organizations into the organizations variable for later use */
 import organizations from './organizationsData.json'
