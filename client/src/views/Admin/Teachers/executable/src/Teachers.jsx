@@ -1,4 +1,4 @@
-/* this is my (mason edwards) .jsx file i developed on my own for the Teachers list page, a lot of which I reused from my Classrooms.jsx file. I did not give anyone permission to directly copy from my code 
+/* this is my .jsx file i developed on my own for the Teachers list page, a lot of which I reused from my Classrooms.jsx file. I did not give anyone permission to directly copy from my code 
 at any point and had this all done before 11/13. */
 import './Teachers.css';
 /* here I imported my mock data for teachers into the teachers variable for later use */
