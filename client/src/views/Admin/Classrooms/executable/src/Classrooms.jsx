@@ -8,7 +8,8 @@ import classes from './classroomsData.json'
 function Classrooms() {
   /* this section is where I stored the classrooms data from my json file into 'course', using a map and the key values I used to tie each classroom and its course name, teacher name, and array of students
   into each classroom. I then use the two maps to iterate through each classroom, print the course name, teacher name, then using the second map print the number of students, then iterate through each student
-  and print each of their names. */
+  and print each of their names. I used <strong></strong>, <div>/<div>, and <br > to control the spacing. Also, I made adjustments to the index.html file to center the
+  display and change the font. */
   return(
     <div>
       <h1 className="classrooms-header">Classrooms</h1>
