@@ -5,8 +5,9 @@ import './index.css'
 import './lessons.css'
 import './lessonData.json'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <Lessons />
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);

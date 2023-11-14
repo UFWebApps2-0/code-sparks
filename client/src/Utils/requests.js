@@ -60,6 +60,14 @@ export const getTeachers = async () =>
     error: 'Teachers could not be retrieved.',
   });
 
+export const getAdmin = async () =>
+makeRequest({
+  method: GET,
+  path: `${server}/admin`,
+  auth: true,
+  error: 'Your admin information could not be retrieved.',
+});
+
 export const getAllClassrooms = async () =>
   makeRequest({
     method: GET,

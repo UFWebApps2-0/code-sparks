@@ -6,7 +6,6 @@ function Lessons() {
   return(
     <div>
       <h1 className="lessons-header">Lesson Modules</h1>
-      <div className="App">
       {
         lessons && lessons.map( module => {
           return(
@@ -34,7 +33,6 @@ function Lessons() {
         })
       }
       </div>
-    </div>
   );
 }
 
