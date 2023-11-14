@@ -23,7 +23,7 @@ import StudentLogin from './views/StudentLogin/StudentLogin';
 import ForgetPassword from './views/TeacherLogin/ForgetPassword';
 import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
-import Lessons from './views/Admin/Lessons/src/lessons';
+import Lessons from './views/Admin/Lessons/lessons';
 
 const App = () => {
   return (
