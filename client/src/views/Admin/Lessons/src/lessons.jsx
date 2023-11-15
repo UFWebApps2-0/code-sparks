@@ -1,40 +1,62 @@
 import './lessons.css';
-import lessons from './lessonData.json'
+import React, { useEffect, useState } from 'react';
+import { getLessonModuleAll } from '../../../../Utils/requests';
 
 function Lessons() {
+  const [lessons, setLessons] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getLessonModuleAll();
+        console.log(res);
+        if (res.data) {
+          setLessons(res.data);
+        } else {
+          message.error(res.err);
+        }
+      } catch {}
+    };
+    fetchData();
+  }, []);
     
   return(
     <div>
-      <h1 className="lessons-header">Lesson Modules</h1>
-      {
-        lessons && lessons.map( module => {
-          return(
-             <div className="box" key={ module.id }>
+      <h1 className="title">Lesson Modules</h1>
+        <div>
+
+        {lessons.map( module => {
+          return (
+            <div className="card">
+
               <strong>{ module.name }</strong>
               <div> Lesson ID: {module.id} </div>
               <div> Expectations: {module.expectations} </div>
-              <br></br>
-              {/* Module Units */}
-              <div> Unit: {module.unit.name} </div>
+
+              <br></br> <div> Unit: {module.unit.name} </div>
               <div> Unit ID: {module.unit.id} </div>
               <div> Grade: {module.unit.grade} </div>
               <div> Standards: {module.unit.standards_id} - {module.unit.standards_description} </div>
-              <br></br>
-              {/* Module/Unit Activites */}
-              <div> Activities</div>
+              
+              <br></br><div> Activities</div>
               {module.activities.map( data => {
                 return( 
-                    <div key={module.key}> Activity ID: { data.id }: {data.description} </div>                )
-               })}
-              <br></br>
-              <br></br>
-             </div>
+                  <div>
+                    <div key={module.key}> Activity {data.number} ID: { data.id }</div>
+                    <div> Activity Description: {data.description} </div>
+                  </div>
+                )
+              })}
+
+            </div> 
+            
           )
-        })
-      }
+          
+          })}
+        </div>
       </div>
+      
   );
 }
 
 export default Lessons;
-
