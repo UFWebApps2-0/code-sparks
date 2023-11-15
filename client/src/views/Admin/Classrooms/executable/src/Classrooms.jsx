@@ -1,5 +1,4 @@
-/* this is my .jsx file i developed on my own for the Classrooms list page, which I made slight variations to for the Organizations list page and for the Teachers list page. I did not give anyone permission 
-to directly copy significant portions from this code. */
+/* this is my .jsx file i developed on my own for the Classrooms list page, which I made slight variations to for the Organizations list page and for the Teachers list page. */
 import './Classrooms.css';
 /* Here I import my mock data from a .json file I created to use for testing purposes. I was only able to develop the code for the classrooms, organizations, and teachers list pages this sprint so I did not 
 implement the strapi data as I was limited by time constraints. */
