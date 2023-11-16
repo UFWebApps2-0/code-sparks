@@ -1,6 +1,7 @@
 /* this is my .jsx file for the classrooms page; it runs successfully if you change directory to ./Sapphire-Project12-4f\client\src\views\Admin\Classrooms\executable then type npm run dev into the terminal. */
 import './Organizations.css';
 import organizations from './organizationsData.json'
+import NavBar from "../../../../../components/NavBar/NavBar"
 
 function Organizations() {
   

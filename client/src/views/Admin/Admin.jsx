@@ -19,7 +19,7 @@ export default function Admin(props) {
       <div><Cards /></div>
       <div><Cards /></div> */}
 
-      <div>
+      <div className="text-left">
         <EditButtons/>
       </div>
     </div>
