@@ -135,9 +135,6 @@ export default function ChallengeCreation() {
             span: 14,
           }}
         >
-          <Form.Item id="form-label">
-            <p>PLACEHOLDER FOR BADGE SELECTION</p>
-          </Form.Item>
           <Form.Item id="form-label" label="Challenge Title">
             <Input.TextArea
               onChange={e => setChallengeData({...challengeData, name: e.target.value})}
