@@ -20,6 +20,7 @@ import StudentLogin from './views/StudentLogin/StudentLogin';
 import ForgetPassword from './views/TeacherLogin/ForgetPassword';
 import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
+import StudentProfile from './views/StudentProfile/StudentProfile'
 
 const App = () => {
   return (
@@ -118,6 +119,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <ChallengeCreation />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/StudentProfile'
+          element={
+            <PrivateRoute>
+              <StudentProfile />
             </PrivateRoute>
           }
         />
