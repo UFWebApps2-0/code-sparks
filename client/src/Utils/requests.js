@@ -371,7 +371,6 @@ export const updateActivityTemplate = async (id, workspace) =>
   });
 
 // Note: Currently this does not allow for updating the teacher associated with a challenge, as each teacher should only own challenges they themselves create
-// TODO(sapphire2a): Authentication should later be added here or elsewhere to ensure that a teacher does not update another teacher's challenge
 export const updateChallengeDetails = async (id, name, description, badge_id) =>
   makeRequest({
     method: PUT,
@@ -385,7 +384,6 @@ export const updateChallengeDetails = async (id, name, description, badge_id) =>
     error: 'Failed to update the challenge details',
 });
 
-// TODO(sapphire2a): Authentication should later be added here or elsewhere to ensure that a teacher does not update another teacher's challenge
 export const updateChallengeActivity = async (id, activity_id) =>
   makeRequest({
     method: PUT,
