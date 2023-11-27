@@ -329,6 +329,28 @@ export const addStudent = async (name, character, classroom) =>
     error: 'Failed to add student.',
   });
 
+  export const updateTeacherProfilePicture = async (id, base64profile) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/mentors/${id}`,
+    data: {
+      profile_picture: base64profile,
+    },
+    auth: true,
+    error: 'Failed to update Profile.',
+  });
+
+  export const updateStudentProfilePicture = async (id, base64profile) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/students/${id}`,
+    data: {
+      profile_picture: base64profile,
+    },
+    auth: true,
+    error: 'Failed to update Profile.',
+  });
+
 export const addStudents = async (students, classroom) =>
   makeRequest({
     method: POST,
