@@ -1,32 +1,43 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
+import LessonModal from './LessonModal';
 
 export default function LessonListView({ lessons }) {
   const columns = [
     {
       title: 'Lesson Name',
       dataIndex: 'name',
-      key: 'name',
     },
     {
       title: 'Lesson ID',
       dataIndex: 'id',
-      key: 'id',
     },
     {
       title: 'Unit Name',
       dataIndex: 'unitName',
-      key: 'unitName',
     },
     {
       title: 'Unit ID',
+      align: 'center',
       dataIndex: 'unitID',
-      key: 'unitID',
     },
     {
       title: 'Grade Level',
+      width: '15%',
+      align: 'center',
       dataIndex: 'grade',
-      key: 'grade',
+    },
+    {
+      title: 'Details',
+      dataIndex: 'view',
+      width: '10%',
+      align: 'center',
+      render: (_, record) => (
+        <LessonModal
+          lessons={record}
+          linkBtn={true}
+        />
+      ),
     },
     // {
     //   title: 'Activities',
@@ -36,12 +47,12 @@ export default function LessonListView({ lessons }) {
   ];
 
   const data = lessons.map((lesson) => ({
-    key: lesson.id,
     name: lesson.name,
     id: lesson.id,
     unitName: lesson.unit.name,
     unitID: lesson.unit.id,
     grade: lesson.unit.grade,
+    view: lesson,
     // activities: lesson.activities,
   }));
 
@@ -52,6 +63,7 @@ export default function LessonListView({ lessons }) {
   );
 }
 
+// R E F E R E N C E information
 // {lessons.map( module => {
 //   return (
 //     <div className="card">
