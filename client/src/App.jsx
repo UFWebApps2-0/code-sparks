@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './Utils/PrivateRoute';
 import About from './views/About/About';
 import Admin from './views/Admin/Admin';
-import Teachers from './views/Admin/TeacherList';
+import Teachers from './views/Admin/Teachers/TeacherList';
 import Classrooms from './views/Admin/Classrooms/executable/src/Classrooms';
 import Organizations from './views/Admin/Organizations/executable/src/Organizations';
 import BlocklyPage from './views/BlocklyPage/BlocklyPage';
