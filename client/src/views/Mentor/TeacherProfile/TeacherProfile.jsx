@@ -9,12 +9,6 @@ import Profile from './ProfilePic';
 let teacher_profile_picture = default_profile;
 let teacher_profile = await getMentor();
 
-// function submitForm(form){
-//   form.preventDefault();
-//   alert("hello world");
-//   console.log("this works");
-//   console.log(form.filename);
-// }
 
 export default function TeacherProfile(props) {
   //try catch at some point?
@@ -23,12 +17,19 @@ export default function TeacherProfile(props) {
   return (
     <div className="container nav-padding">
       <NavBar />
-      <Profile />
+      
       <div>
+        <div>
+        </div>
         <div className = "teacher_styling" >
           <img className="profile_picture_styling" src={teacher_profile_picture} alt="Profile Picture" />
-          
-        </div>   
+         
+        </div> 
+        <div className="update">
+        <Profile />
+        </div>
+       
+         
          
         
         <div className = " teacher_styling teacher_buttons">

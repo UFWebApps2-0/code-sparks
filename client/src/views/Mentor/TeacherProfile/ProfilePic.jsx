@@ -35,6 +35,7 @@ const ProfilePic = () => {
   return (
     <div>
       <input type="file" id="imageInput" accept="image/*" />
+      <p>update profile picture</p>
     </div>
   );
 };

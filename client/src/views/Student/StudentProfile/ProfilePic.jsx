@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { getCurrentStudent } from '../../../Utils/requests';
 import { updateStudentProfilePicture} from '../../../Utils/requests';
+import { getStudent} from '../../../Utils/requests';
+
 
 //gets the current signed in user to get their profile picture
 let currentStudent = await getCurrentStudent();
@@ -8,7 +10,8 @@ let currentStudent = await getCurrentStudent();
 //updates the profile picture
 async function queryDB(picture){
     console.log(currentStudent.data.students[0].id);
-    console.log(picture)
+    let k = await getStudent(currentStudent.data.students[0].id)
+    console.log(k);
   const response = await updateStudentProfilePicture(currentStudent.data.students[0].id, picture);
   if (response.err) {
     console.log(response.err)
