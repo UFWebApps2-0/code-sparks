@@ -13,6 +13,10 @@ export default function LessonListView({ lessons }) {
       dataIndex: 'id',
     },
     {
+      title: 'Lesson Standard',
+      dataIndex: 'lessonStandard',
+    },
+    {
       title: 'Unit Name',
       dataIndex: 'unitName',
     },
@@ -34,7 +38,7 @@ export default function LessonListView({ lessons }) {
       align: 'center',
       render: (_, record) => (
         <LessonModal
-          lessons={record}
+          lesson={record}
           linkBtn={true}
         />
       ),
@@ -49,10 +53,10 @@ export default function LessonListView({ lessons }) {
   const data = lessons.map((lesson) => ({
     name: lesson.name,
     id: lesson.id,
+    lessonStandard: lesson.standards,
     unitName: lesson.unit.name,
     unitID: lesson.unit.id,
     grade: lesson.unit.grade,
-    view: lesson,
     // activities: lesson.activities,
   }));
 
