@@ -1,42 +1,82 @@
-/* this is my .jsx file i developed on my own for the Classrooms list page, which I made slight variations to for the Organizations list page and for the Teachers list page. */
 import './Classrooms.css';
-/* Here I import my mock data from a .json file I created to use for testing purposes. I was only able to develop the code for the classrooms, organizations, and teachers list pages this sprint so I did not 
-implement the strapi data as I was limited by time constraints. */
-import classes from './classroomsData.json'
+import React, { useEffect, useState } from 'react';
+import { getAllClassrooms } from '../../../../../Utils/requests';
+import NavBar from "../../../../../components/NavBar/NavBar"
+import Sidebar from "../../../Components/Sidebar"
+import { Tabs } from 'antd';
+
+const { TabPane } = Tabs;
 
 function Classrooms() {
-  /* this section is where I stored the classrooms data from my json file into 'course', using a map and the key values I used to tie each classroom and its course name, teacher name, and array of students
-  into each classroom. I then use the two maps to iterate through each classroom, print the course name, teacher name, then using the second map print the number of students, then iterate through each student
-  and print each of their names. I used <strong></strong>, <div>/<div>, and <br > to control the spacing. Also, I made adjustments to the index.html file to center the display and change the font. */
+  const [classrooms, setClassrooms] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getAllClassrooms();
+        console.log(res);
+        if (res.data) {
+          setClassrooms(res.data);
+          console.log(res.data);
+        } else {
+          message.error(res.err);
+        }
+      } catch {}
+    };
+    fetchData();
+  }, []);
+
   return(
     <div>
+      <div className="container nav-padding">
+      <NavBar /> <Sidebar/>
+      <Tabs defaultActiveKey="home">
+          <TabPane tab="Classroom List" key="roster">
       <h1 className="classrooms-header">Classrooms</h1>
       <div className="App">
-      
-      {
-        classes && classes.map( course => {
-          return(
-             <div className="box" key={ course.id }>
-              <strong>{ course.courseName }</strong>
-              <div>Teacher: { course.teacher.firstName } { course.teacher.lastName}</div>
-              <div>Number of Students: { course.students.length }</div>
-               {course.students.map( data => {
+        {  classrooms.map (course => {
+            return( 
+              <div key={course.key}>
+              <div>Classroom Name: {course.name} </div>
+              <div>Classroom ID: {course.id} </div>
+              <div>Course Code: {course.code} </div>
+              <div>Mentors: </div>
+              {course.mentors.map( mentor => {
                 return( 
-                  <div key={course.key}>
-                  { data.firstName } { data.lastName }
+                  <div key={mentor.key}>
+                  { mentor.first_name } { mentor.last_name }
                   </div>
                 )
-               })}
-               <br />
-             </div>
-          )
-        })
-      }
+              })}
+              <div>Number of Students: {course.students.length} </div>
+              {course.students.map( student => {
+                return( 
+                  <div key={student.key}>
+                  { student.name }
+                  </div>
+                )
+              })}
+              <div>Number of Sessions: {course.sessions.length} </div>
+              {course.sessions.map( session => {
+                return( 
+                  <div key={session.key}>
+                  { session.id }
+                  </div>
+                )
+              })}
 
+              <br />
+              </div>
+            )
+          })}
+       {
+      }
       </div>
-    </div>
+          </TabPane>
+        </Tabs>
+      </div>
+      </div>
   );
 }
 
 export default Classrooms;
-
