@@ -48,9 +48,7 @@ export default function LessonModal({ linkBtn, lesson }) {
           <Button key='ok' type='primary' onClick={handleOk}>
             OK
           </Button>,
-        ]}
-      >
-        
+        ]}>       
         <div id='modal-lessons-card-header'>
           <h1 id='lessons-card-title'>{lesson.name}</h1>
         </div>
@@ -71,7 +69,6 @@ export default function LessonModal({ linkBtn, lesson }) {
         })}
         </div>
         </div>
-
       </Modal>
     </div>
   );

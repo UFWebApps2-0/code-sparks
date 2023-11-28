@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Tag } from 'antd';
+import { Table } from 'antd';
 import LessonModal from './LessonModal';
 
 export default function LessonListView({ lessons }) {
@@ -60,46 +60,3 @@ export default function LessonListView({ lessons }) {
     </div>
   );
 }
-
-// R E F E R E N C E information
-// {lessons.map( module => {
-//   return (
-//     <div className="card">
-//       <div class="card-deck">
-//       <div class="card">
-//       <div class="card-body">
-//         <h5 class="card-title">{module.name}</h5>
-//         <p class="card-text">
-//         <div> Lesson ID: {module.id} </div>
-//         <div> Expectations: {module.expectations} </div>
-//         </p>
-//       </div>
-//     </div>
-//     <div class="card">
-//       <div class="card-body">
-//         <h5 class="card-title">Details</h5>
-//         <p class="card-text">
-//         <strong>Unit</strong>
-//         <div> Unit: {module.unit.name} </div>
-//         <div> Unit ID: {module.unit.id} </div>
-//         <div> Grade: {module.unit.grade} </div>
-//         <div> Standards: {module.unit.standards_id} - {module.unit.standards_description} </div>
-//         <br></br><strong>Activities</strong>
-//         {module.activities.map( data => {
-//         return( 
-//           <div>
-//             <div key={module.key}> Activity {data.number} ID: { data.id }</div>
-//             <div> Activity Description: {data.description} </div>
-//           </div>
-//         )
-//       })}
-
-//         </p>
-//       </div>
-//     </div>
-//     </div>
-//     </div> 
-
-//   )
-  
-//   })}
