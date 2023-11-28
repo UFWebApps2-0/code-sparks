@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* imported from `\client\src\assets\style.less` */
 
 body {
@@ -79,3 +80,21 @@ h3, p {
   height: auto;
 }
 
+=======
+/* page layout colors */
+
+body {
+    background-color: #c7e2fe; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .lessons-header {
+    color: #042c54;
+  }
+  
+  .box {
+    color: #042c54; 
+  }
+  
+>>>>>>> develop
