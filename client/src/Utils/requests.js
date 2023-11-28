@@ -59,6 +59,13 @@ export const getTeachers = async () =>
     auth: true,
     error: 'Teachers could not be retrieved.',
   });
+  export const getTeacher = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/mentors/${id}`,
+    auth: true,
+    error: 'Failed to retrieve learning standard.',
+  });
 
 export const getAdmin = async () =>
 makeRequest({
