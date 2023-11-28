@@ -2,8 +2,9 @@ import './Organizations.css';
 import React, { useEffect, useState } from 'react';
 import { getSchools } from '../../../../../Utils/requests';
 import NavBar from "../../../../../components/NavBar/NavBar"
+import OrganizationCard from './OrganizationCard';
 import Sidebar from "../../../Components/Sidebar"
-import { Tabs } from 'antd';
+import {Tabs} from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -27,45 +28,15 @@ function Organizations() {
   }, []);
 
   return(
-    <div>
-      <div className="container nav-padding">
-      <NavBar /> <Sidebar/>
-      <Tabs defaultActiveKey="home">
-          <TabPane tab="Organizations List" key="roster">
-      <h1 className="classrooms-header">Organizations</h1>
-      <div className="App">
-        {  organizations.map ( organization => {
-            return( 
-              <div key={organization.key}>
-              <div>Organization Name: {organization.name} </div>
-              <div>County, State: {organization.county},  {organization.state} </div>
-              <div>Mentors: </div>
-              {organization.mentors.map( mentor => {
-                return( 
-                  <div key={mentor.key}>
-                  { mentor.first_name } { mentor.last_name }
-                  </div>
-                )
-              })}
-              <div>Number of Classrooms: {organization.classrooms.length} </div>
-              {organization.classrooms.map( classroom => {
-                return( 
-                  <div key={classroom.key}>
-                  { classroom.name }
-                  </div>
-                )
-              })}
-              <br />
-              </div>
-            )
-          })}
-       {
-      }
-      </div>
-          </TabPane>
-        </Tabs>
-      </div>
-      </div>
+    <div className="container nav-padding">
+        <NavBar/>
+        <h1 className='text-left'> List of Organizations</h1>
+      {organizations.map((organization) => (
+        <div key={organization.id} className="mb-3">
+          <OrganizationCard organization={organization} />
+        </div>
+      ))}
+    </div>
   );
 }
 
