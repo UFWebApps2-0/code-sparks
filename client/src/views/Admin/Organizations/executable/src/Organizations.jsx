@@ -1,49 +1,72 @@
-/* this is my .jsx file i developed on my own for the Organizations list page, a lot of which I reused from my Classrooms.jsx file. */
 import './Organizations.css';
-/* here I imported my mock data (which is identical to the data on strapi, but still created by me in a json file) for organizations into the organizations variable for later use */
-import organizations from './organizationsData.json'
+import React, { useEffect, useState } from 'react';
+import { getSchools } from '../../../../../Utils/requests';
 import NavBar from "../../../../../components/NavBar/NavBar"
+import Sidebar from "../../../Components/Sidebar"
+import { Tabs } from 'antd';
+
+const { TabPane } = Tabs;
 
 function Organizations() {
-  /* in this file I used a total of three maps to first iterate through each organization, then separately iterate through its array of classrooms, then its array of mentors. The first element i output is 
-  the 'Organizations' header, then for each organization I display its name, county, and state. Then i use the second map to store each organizations array of classrooms into the 'data' variable and display 
-  each one. I do the same thing for the array of mentors as well. I used <strong></strong>, <div>/<div>, and <br > to control the spacing. Also, I made adjustments to the index.html file to center the
-  display and change the font. */
+  const [organizations, setOrganizations] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getSchools();
+        console.log(res);
+        if (res.data) {
+          setOrganizations(res.data);
+          console.log(res.data);
+        } else {
+          message.error(res.err);
+        }
+      } catch {}
+    };
+    fetchData();
+  }, []);
+
   return(
     <div>
-      <h1 className="organizations-header">Organizations</h1>
-      {
-        organizations && organizations.map( org => {
-          return(
-             <div className="box" key={ org.id }>
-              <strong>{ org.orgName }</strong>
-              <div>County: { org.county } </div>
-              <div>State: { org.state }</div>
-              <div>Number of Classrooms: { org.classrooms.length }</div>
-               {org.classrooms.map( data => {
+      <div className="container nav-padding">
+      <NavBar /> <Sidebar/>
+      <Tabs defaultActiveKey="home">
+          <TabPane tab="Organizations List" key="roster">
+      <h1 className="classrooms-header">Organizations</h1>
+      <div className="App">
+        {  organizations.map ( organization => {
+            return( 
+              <div key={organization.key}>
+              <div>Organization Name: {organization.name} </div>
+              <div>County, State: {organization.county},  {organization.state} </div>
+              <div>Mentors: </div>
+              {organization.mentors.map( mentor => {
                 return( 
-                  <div key={org.key}>
-                  { data.classroomName } 
+                  <div key={mentor.key}>
+                  { mentor.first_name } { mentor.last_name }
                   </div>
                 )
-               })}
-               <div>Number of Mentors: { org.mentors.length }</div>
-               {org.mentors.map( data => {
+              })}
+              <div>Number of Classrooms: {organization.classrooms.length} </div>
+              {organization.classrooms.map( classroom => {
                 return( 
-                  <div key={org.key}>
-                  { data.firstName } { data.lastName } 
+                  <div key={classroom.key}>
+                  { classroom.name }
                   </div>
                 )
-               })}
-               <br />
-               
-             </div>
-          )
-        })
+              })}
+              <br />
+              </div>
+            )
+          })}
+       {
       }
+      </div>
+          </TabPane>
+        </Tabs>
+      </div>
       </div>
   );
 }
 
 export default Organizations;
-

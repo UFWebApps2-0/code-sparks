@@ -76,6 +76,14 @@ export const getAllClassrooms = async () =>
     error: 'Classrooms could not be retrieved.',
   });
 
+export const getSchools = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/schools`,
+    auth: true,
+    error: 'Schools could not be retrieved.',
+});
+
 export const getAllStudents = async () =>
   makeRequest({
     method: GET,
