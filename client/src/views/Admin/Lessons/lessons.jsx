@@ -46,6 +46,4 @@ function Lessons() {
   );
 }
 
-
-
 export default Lessons;

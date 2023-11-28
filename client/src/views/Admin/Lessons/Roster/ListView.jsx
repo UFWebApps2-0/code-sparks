@@ -43,11 +43,6 @@ export default function LessonListView({ lessons }) {
         />
       ),
     },
-    // {
-    //   title: 'Activities',
-    //   dataIndex: 'activities',
-    //   key: 'activities',
-    // },
   ];
 
   const data = lessons.map((lesson) => ({
@@ -57,7 +52,6 @@ export default function LessonListView({ lessons }) {
     unitName: lesson.unit.name,
     unitID: lesson.unit.id,
     grade: lesson.unit.grade,
-    // activities: lesson.activities,
   }));
 
   return (

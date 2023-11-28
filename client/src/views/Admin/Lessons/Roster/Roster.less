@@ -142,8 +142,8 @@
   }
 }
 
-//StudentModal View
-#modal-student-card-header {
+//LessonModal View
+#modal-lessons-card-header {
   #animal {
     background: #colors[quaternary];
     display: inline-block;
@@ -157,7 +157,7 @@
     margin: 0;
   }
 
-  #student-card-title {
+  #lessons-card-title {
     display: inline-block;
     font-size: 1.5em;
     margin-left: 10px;
@@ -172,16 +172,22 @@
   padding: 12px 0px 0 0px;
 
   #description-container {
-    height: 4vh;
+    height: auto;
+    overflow-y: auto;
+    max-height: 200em;
+    align-items: flex-start;
+    
 
     #label {
       display: inline-block;
       font-weight: 600;
+      
     }
 
     #label-info {
       display: inline-block;
-      margin-left: 6px;
+      margin-left: 15px;
+      
     }
   }
 }
