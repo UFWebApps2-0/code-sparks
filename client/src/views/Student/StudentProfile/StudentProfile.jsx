@@ -7,7 +7,7 @@ import {getStudentClassroom} from '../../../Utils/requests';
 import { getStudent } from '../../../Utils/requests';
 import {Link} from 'react-router-dom';
 import { getCurrentStudent } from '../../../Utils/requests';
-import Profile from './ProfilePic';
+import Profile from './StudentProfilePic';
 import default_profile from '../../../assets/default.png';
 
 
