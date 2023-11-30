@@ -2,9 +2,8 @@ import {message} from 'antd';
 import React, {useEffect, useState} from 'react';
 import NavBar from "../../../components/NavBar/NavBar";
 import './StudentProfile.less';
-import {getStudentClassroom} from '../../../Utils/requests';
+import {getStudentClassroom, getCurrentStudent} from '../../../Utils/requests';
 import {Link} from 'react-router-dom';
-import { getCurrentStudent } from '../../../Utils/requests';
 import Profile from './StudentProfilePic';
 import default_profile from '../../../assets/default.png';
 
@@ -44,7 +43,7 @@ function StudentProfile(){
         <NavBar />  
         
         <div className = "student_styling">
-        <img className="profile_picture_styling" src={profilepicture} alt="Profile Picture" />
+        <img className="profile_picture_styling" src={profilepicture} />
         <div className="update">
         <Profile />
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { getMentor} from '../../../Utils/requests';
-import { updateTeacherProfilePicture} from '../../../Utils/requests';
+import { getMentor, updateTeacherProfilePicture} from '../../../Utils/requests';
 
 //gets the current signed in user to get their profile picture
 

@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-import { getCurrentStudent } from '../../../Utils/requests';
-import { updateStudentProfilePicture} from '../../../Utils/requests';
-import { getStudent} from '../../../Utils/requests';
-
+import { getCurrentStudent, getStudent, updateStudentProfilePicture } from '../../../Utils/requests';
 
 //gets the current signed in user to get their profile picture
 let currentStudent = await getCurrentStudent();
