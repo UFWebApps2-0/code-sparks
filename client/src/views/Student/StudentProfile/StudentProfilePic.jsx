@@ -12,6 +12,7 @@ async function queryDB(picture){
     console.log(currentStudent.data.students[0].id);
     let k = await getStudent(currentStudent.data.students[0].id)
     console.log(k);
+    //quries to get the student and update it as such
   const response = await updateStudentProfilePicture(currentStudent.data.students[0].id, picture);
   if (response.err) {
     console.log(response.err)
@@ -26,7 +27,7 @@ const ProfilePic = () => {
 
     if (fileInput) {
       fileInput.addEventListener('change', (event) => {
-        if (event.target.files && event.target.files[0]) {
+        if (event?.target.files[0]) {
           const reader = new FileReader();
           reader.onload = (e) => {
             queryDB(e.target.result);

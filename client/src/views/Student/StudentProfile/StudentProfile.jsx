@@ -1,10 +1,8 @@
 import {message} from 'antd';
 import React, {useEffect, useState} from 'react';
-import{useNavigate} from 'react-router-dom';
 import NavBar from "../../../components/NavBar/NavBar";
 import './StudentProfile.less';
 import {getStudentClassroom} from '../../../Utils/requests';
-import { getStudent } from '../../../Utils/requests';
 import {Link} from 'react-router-dom';
 import { getCurrentStudent } from '../../../Utils/requests';
 import Profile from './StudentProfilePic';
@@ -13,7 +11,6 @@ import default_profile from '../../../assets/default.png';
 
 function StudentProfile(){
 
-    const navigate = useNavigate();
     const studentName = localStorage.getItem('studentName');
     const [classroom, setClassroom] = useState(null);
     const [profilepicture, loadProfile] = useState(default_profile);
