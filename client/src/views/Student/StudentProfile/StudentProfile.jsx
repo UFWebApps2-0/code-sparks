@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom';
 import Profile from './StudentProfilePic';
 import default_profile from '../../../assets/default.png';
 
-
 function StudentProfile(){
 
     const studentName = localStorage.getItem('studentName');

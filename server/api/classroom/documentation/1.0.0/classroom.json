@@ -905,12 +905,11 @@
                 "user": {
                   "type": "string"
                 },
-                "p": {
-                  "type": "object"
-                },
                 "challenges": {
-                  "via": "mentor",
-                  "collection": "challenge"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

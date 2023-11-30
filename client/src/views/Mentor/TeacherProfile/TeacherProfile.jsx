@@ -5,7 +5,8 @@ import default_profile from '../../../assets/default.png';
 import { getMentor} from '../../../Utils/requests';
 import Profile from './TeacherProfilePic';
 
-export default function TeacherProfile(props) {
+
+export default function TeacherProfile() {
   const [profilepicture, loadProfile] = useState(default_profile);
 
 useEffect(() => {
