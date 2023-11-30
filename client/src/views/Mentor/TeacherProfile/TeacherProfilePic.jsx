@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
 import { getMentor, updateTeacherProfilePicture} from '../../../Utils/requests';
 
-//gets the current signed in user to get their profile picture
-
-
 //updates the profile picture
 async function queryDB(picture){
   let teacher_profile = await getMentor();
   const response = await updateTeacherProfilePicture(teacher_profile.data.id, picture);
   if (response.err) {
-    console.log(response.err)
+    console.log("Failed to update profile pircture, error: " + response.err)
   } else {
     console.log('Update success');
   }
@@ -40,3 +37,4 @@ const ProfilePic = () => {
 };
 
 export default ProfilePic;
+

@@ -12,9 +12,9 @@ async function queryDB(picture){
     //quries to get the student and update it as such
   const response = await updateStudentProfilePicture(currentStudent.data.students[0].id, picture);
   if (response.err) {
-    console.log(response.err)
+    console.log("Response failed with " + response.err)
   } else {
-    console.log('Update success');
+    console.log('Updated Profile Successfully');
   }
 }
 

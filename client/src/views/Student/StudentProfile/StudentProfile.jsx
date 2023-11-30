@@ -43,7 +43,7 @@ function StudentProfile(){
         <NavBar />  
         
         <div className = "student_styling">
-        <img className="profile_picture_styling" src={profilepicture} />
+        <img className="profile_picture_styling" src={profilepicture}  alt="Profile"/>
         <div className="update">
         <Profile />
 
