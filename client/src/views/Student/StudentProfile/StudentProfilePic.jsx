@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { getCurrentStudent, getStudent, updateStudentProfilePicture } from '../../../Utils/requests';
+import React from 'react';
 import UpdateProfile from '../../UpdateProfile/UpdateProfile';
 
   const ProfilePic = () => {

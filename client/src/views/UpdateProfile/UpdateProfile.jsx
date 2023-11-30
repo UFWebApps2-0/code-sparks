@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import { getMentor, updateTeacherProfilePicture} from '../../Utils/requests';
-import { getCurrentStudent, getStudent, updateStudentProfilePicture } from '../../Utils/requests';
+import { getMentor, updateTeacherProfilePicture, getCurrentStudent, getStudent, updateStudentProfilePicture} from '../../Utils/requests';
 
-console.log("this is atest");
 
 //updates the profile picture
 async function queryDB(picture, isTeacher){
@@ -31,6 +29,10 @@ async function queryDB(picture, isTeacher){
 }
 
 const UpdateProfile = ({isTeacher}) => {
+        UpdateProfile.propTypes = {
+            isTeacher: PropTypes.number.isRequired
+        }
+
         useEffect(() => {
             const fileInput = document.getElementById('imageInput');
             if (fileInput) {

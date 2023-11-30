@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { getMentor, updateTeacherProfilePicture} from '../../../Utils/requests';
+import React from 'react';
 import UpdateProfile from '../../UpdateProfile/UpdateProfile';
 
 const ProfilePic = () => {
