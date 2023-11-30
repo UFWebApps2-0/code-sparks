@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import './Student.less';
-import { getStudent, getStudentClassroom} from '../../Utils/requests';
-console.log(getStudent())
-// client/src/Utils/userState.js
+import { getStudentClassroom} from '../../Utils/requests';
+
 function Student() {
   const [learningStandard, setLessonModule] = useState({});
   const navigate = useNavigate();
@@ -36,7 +35,10 @@ function Student() {
   return (
     <div className='container nav-padding'>
       <NavBar />
-      <div>HELLO WORLD</div>
+      <div id = "studentplink">
+      <Link to="/StudentProfile">Profile</Link>
+      </div>
+      <div id ='student-name'>Welcome back, {studentName}</div>
       <div id='activity-container'>
         <div id='header'>
           <div>Select your Activity</div>

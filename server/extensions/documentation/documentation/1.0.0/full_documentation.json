@@ -12253,6 +12253,12 @@
                 "p": {
                   "type": "object"
                 },
+                "challenges": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },

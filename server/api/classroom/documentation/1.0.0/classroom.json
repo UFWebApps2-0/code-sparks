@@ -908,6 +908,10 @@
                 "p": {
                   "type": "object"
                 },
+                "challenges": {
+                  "via": "mentor",
+                  "collection": "challenge"
+                },
                 "created_by": {
                   "type": "string"
                 },

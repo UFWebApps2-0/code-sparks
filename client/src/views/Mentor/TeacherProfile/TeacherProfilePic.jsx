@@ -12,7 +12,8 @@ async function queryDB(picture){
   }
 }
 
-const ProfilePic = () => {
+const ProfilePic = ({test}) => {
+  console.log(test);
   useEffect(() => {
     const fileInput = document.getElementById('imageInput');
 
