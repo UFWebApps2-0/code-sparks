@@ -3,10 +3,11 @@ import { getMentor} from '../../../Utils/requests';
 import { updateTeacherProfilePicture} from '../../../Utils/requests';
 
 //gets the current signed in user to get their profile picture
-let teacher_profile = await getMentor();
+
 
 //updates the profile picture
 async function queryDB(picture){
+  let teacher_profile = await getMentor();
   const response = await updateTeacherProfilePicture(teacher_profile.data.id, picture);
   if (response.err) {
     console.log(response.err)
@@ -35,7 +36,6 @@ const ProfilePic = () => {
   return (
     <div>
       <input type="file" id="imageInput" accept="image/*" />
-      <p>update profile picture</p>
     </div>
   );
 };

@@ -8,20 +8,23 @@ import { getStudent } from '../../../Utils/requests';
 import {Link} from 'react-router-dom';
 import { getCurrentStudent } from '../../../Utils/requests';
 import Profile from './ProfilePic';
+import default_profile from '../../../assets/default.png';
 
-let currentStudent = await getCurrentStudent();
 
 function StudentProfile(){
 
     const navigate = useNavigate();
     const studentName = localStorage.getItem('studentName');
     const [classroom, setClassroom] = useState(null);
+    const [profilepicture, loadProfile] = useState(default_profile);
 
     useEffect(() => {
         const fetchData = async () => {
           try {
             const res = await getStudentClassroom();
+            const currentStudent = await getCurrentStudent();
             setClassroom(res.data.classroom.name);
+            loadProfile(currentStudent.data.students[0].profile_picture);
             console.log(res.data.classroom.name);
             if (res.data) {
               if (res.data.name) {
@@ -36,16 +39,20 @@ function StudentProfile(){
       }, []);
 
     return(
-
         <html>
         <body id='pbody'>
 
        
        <div profile='profile'>
         <NavBar />  
-        <Profile />
+        
         <div className = "student_styling">
-        <img className="profile_picture_styling" src={currentStudent.data.students[0].profile_picture} alt="Profile Picture" />
+        <img className="profile_picture_styling" src={profilepicture} alt="Profile Picture" />
+        <div className="update">
+        <Profile />
+
+        </div>
+
         
       </div>
        

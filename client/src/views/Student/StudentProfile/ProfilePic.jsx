@@ -39,7 +39,7 @@ const ProfilePic = () => {
 
   return (
     <div>
-      <input type="file" id="imageInput" accept="image/*" />
+      <input type="file" id="imageInput" title=" " accept="image/*" />
     </div>
   );
 };
