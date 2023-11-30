@@ -23,7 +23,7 @@ useEffect(() => {
       <NavBar />
       <div>
         <div className = "teacher_styling" >
-          <img className="profile_picture_styling" src={profilepicture} />
+          <img className="profile_picture_styling" src={profilepicture} alt="Profile Picture" />
          
         </div> 
         <div className="update">
