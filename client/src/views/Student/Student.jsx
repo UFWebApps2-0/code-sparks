@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import './Student.less';
-import { getStudentClassroom} from '../../Utils/requests';
 import {Link} from 'react-router-dom';
-
-
+import { getStudentClassroom} from '../../Utils/requests';
 
 function Student() {
   const [learningStandard, setLessonModule] = useState({});
