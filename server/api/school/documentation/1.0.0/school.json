@@ -584,6 +584,9 @@
                     "type": "string"
                   }
                 },
+                "challenge": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -623,9 +626,6 @@
                 },
                 "user": {
                   "type": "string"
-                },
-                "p": {
-                  "type": "object"
                 },
                 "challenges": {
                   "type": "array",

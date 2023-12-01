@@ -34,8 +34,9 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "p": {
-      "type": "json"
+    "challenges": {
+      "via": "mentor",
+      "collection": "challenge"
     }
   }
 }
