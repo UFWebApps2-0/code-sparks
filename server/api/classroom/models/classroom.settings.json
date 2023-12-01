@@ -23,8 +23,8 @@
       "collection": "session"
     },
     "mentors": {
-      "via": "classrooms",
-      "collection": "mentor"
+      "collection": "mentor",
+      "via": "classrooms"
     },
     "students": {
       "via": "classroom",
@@ -46,6 +46,10 @@
       "via": "classroom",
       "private": true,
       "collection": "authorized-workspace"
+    },
+    "challenge": {
+      "via": "classrooms",
+      "model": "challenge"
     }
   }
 }
