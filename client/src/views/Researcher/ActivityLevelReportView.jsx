@@ -84,8 +84,8 @@ const ActivityLevelReportView = () => {
         // Sprint 2 will include data retrieval from backend
         setTimeout(() => {
             const feedbackRes = [
-                { timestamp: '11/6/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
-                { timestamp: '11/6/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
+                { timestamp: '11/28/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
+                { timestamp: '11/28/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
             ];
 
             setFeedbacks(feedbackRes.map((feedback, index) => ({

@@ -1,4 +1,4 @@
-import { message } from "antd"
+import { message, Button } from "antd"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import BlocklyCanvasPanel from "../../components/ActivityPanels/BlocklyCanvasPanel/BlocklyCanvasPanel"
@@ -95,12 +95,10 @@ export default function BlocklyPage({ isSandbox }) {
         };
 
         const fetchFeedback = async () => {
-            // Simulated delay for now
-            // Sprint 2 will include data retrieval from backend
             setTimeout(() => {
                 const feedbackRes = [
-                    { timestamp: '11/6/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
-                    { timestamp: '11/6/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
+                    { timestamp: '11/28/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
+                    { timestamp: '11/28/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
                 ];
 
                 setFeedback(feedbackRes);
@@ -119,12 +117,25 @@ export default function BlocklyPage({ isSandbox }) {
         };
     }, [location]);
 
+    const showFeedbackModal = () => {
+        setIsModalVisible(true);
+    };
+
     return (
         <div className="container nav-padding">
             <NavBar />
             <div className="flex flex-row">
                 <BlocklyCanvasPanel activity={activity} setActivity={setActivity} isSandbox={isSandbox} />
             </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '-75px' }}>
+                {feedback.length > 0 && (
+                    <Button type="primary" onClick={showFeedbackModal}>
+                        Show Feedback
+                    </Button>
+                )}
+            </div>
+
             {feedback.length > 0 && (
                 <DisplayFeedbackModal
                     feedback={feedback}
@@ -133,5 +144,5 @@ export default function BlocklyPage({ isSandbox }) {
                 />
             )}
         </div>
-    )
+    );
 }
