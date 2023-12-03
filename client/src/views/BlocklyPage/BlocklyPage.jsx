@@ -96,12 +96,17 @@ export default function BlocklyPage({ isSandbox }) {
 
         const fetchFeedback = async () => {
             setTimeout(() => {
+                const savedFeedback = localStorage.getItem('feedback');
+                if (savedFeedback) {
+                    setFeedback(JSON.parse(savedFeedback));
+                }
+
+                /* For static use only
                 const feedbackRes = [
                     { timestamp: '11/28/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
                     { timestamp: '11/28/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
                 ];
-
-                setFeedback(feedbackRes);
+                setFeedback(feedbackRes);*/
                 showFeedbackMessage();
             }, 1000);
         };

@@ -80,9 +80,13 @@ const ActivityLevelReportView = () => {
     };
 
     const fetchFeedback = async () => {
-        // Simulated delay for now
-        // Sprint 2 will include data retrieval from backend
         setTimeout(() => {
+            const savedFeedback = localStorage.getItem('feedback');
+            if (savedFeedback) {
+                setFeedbacks(JSON.parse(savedFeedback));
+            }
+
+            /* For static use only
             const feedbackRes = [
                 { timestamp: '11/28/2023, 10:00 AM', comment: 'Fantastic job on this project!' },
                 { timestamp: '11/28/2023, 9:30 AM', comment: 'You\'re so close! Just need to play around a little bit more with the timings of everything. Try decreasing your wait time by 1000 milliseconds.' },
@@ -92,7 +96,7 @@ const ActivityLevelReportView = () => {
                 key: index,
                 timestamp: feedback.timestamp,
                 comment: feedback.comment
-            })));
+            })));*/
         }, 1000);
     };
 
@@ -103,7 +107,10 @@ const ActivityLevelReportView = () => {
             comment: newFeedback
         };
 
-        setFeedbacks([newFeedbackEntry, ...feedbacks]);
+        const updatedFeedbacks = [...feedbacks, newFeedbackEntry];
+        setFeedbacks(updatedFeedbacks);
+        localStorage.setItem('feedback', JSON.stringify(updatedFeedbacks));
+
         setNewFeedback(''); // Clear textarea
         setShowConfirmation(true);
 
