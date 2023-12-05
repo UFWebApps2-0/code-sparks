@@ -7,7 +7,7 @@ import Admin from './views/Admin/Admin';
 import Teachers from './views/Admin/Teachers/TeacherList';
 import Classrooms from './views/Admin/Classrooms/executable/src/Classrooms';
 import Organizations from './views/Admin/Organizations/executable/src/Organizations';
-import ManageStudents from './views/Admin/ManageStudents/src/ManageStudents.jsx';
+import ManageStudents from './views/Admin/ManageStudents/ManageStudents';
 import BlocklyPage from './views/BlocklyPage/BlocklyPage';
 import BugReport from './views/BugReport/BugReport';
 import ContentCreator from './views/ContentCreator/ContentCreator';
@@ -59,7 +59,7 @@ const App = () => {
         <Route path='/classroomlist' element={<Classrooms />} />
         <Route path='/lessonlist' element={<Lessons />} />
         <Route path='/teacherlist' element={<Teachers />} />
-        <Route path='/managestudents' element={<ManageStudents />} />
+       <Route path='/managestudents' element={<ManageStudents />} />
 
 
         <Route
