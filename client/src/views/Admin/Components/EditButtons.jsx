@@ -28,7 +28,7 @@ const EditButtons = () => {
 
     return(
         <div>
-            <button className="first-button" onClick={routeOrganizations}>Edit Organizations</button>
+            <button className="first-button" onClick={routeOrganizations}>View Organizations</button>
             <button className="custom-button" onClick={routeClassrooms}>Edit Classrooms</button>
             <button className="custom-button" onClick={routeTeachers}>Edit Teachers</button>
             <br/>
