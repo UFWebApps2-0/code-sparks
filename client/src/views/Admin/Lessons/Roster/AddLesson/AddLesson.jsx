@@ -5,10 +5,12 @@ import "./AddLesson.less"
 
 export default function AddLesson({ addLessonToTable }) {
   const [name, setName] = useState("");
-  // const [id, setID] = useState("")
-  // const [standard, setStandard] = useState("")
-  // const [unitID, setUnitID] = useState("")
-  // const [unitName, setUnitName] = useState("")
+  const [id, setID] = useState("");
+  const [expectations, setExpectations] = useState("");
+  const [unit, setUit] = useState([]);
+  const [activities, setActivities] = useState([]);
+  const [number, setNumber] = useState("");
+  const [standards, setStandards] = useState("");
   // const [tableData, setTableData] = useState([]) //CHECK THIS
   const [lessons, setLessons] = useState([]);
   const [newLesson, setNewLesson] = useState([]);
@@ -30,105 +32,83 @@ export default function AddLesson({ addLessonToTable }) {
 
   const buttonRef = React.createRef()
 
-  const handleManualAdd = async () => {
-    // CHECK THIS
-    // setNewLesson(lessons);
-    // newLesson.id = id;
-    // newLesson.standards = standard;
-    // newLesson.unit = newUnit;
-    // newUnit.id = unitID;
-    // newUnit.name = unitName;
-    const res = await addLesson(name);
-    console.log("RES", res);
+  // const handleManualAdd = async () => {
+  //   // CHECK THIS
+  //   // setNewLesson(lessons);
+  //   // newLesson.id = id;
+  //   // newLesson.standards = standard;
+  //   // newLesson.unit = newUnit;
+  //   // newUnit.id = unitID;
+  //   // newUnit.name = unitName;
+  //   const res = await addLesson(name);
+  //   console.log("RES", res);
+  //   if (res.data) {
+  //     console.log(res.data, "IT IS WORKING");
+  //     addLessonToTable([res.data]);
+  //     message.success(
+  //       `${name} has been added to the roster successfully.`
+  //     )
+  //     setName("");
+  //     getTableData();
+  //     // setNewLesson([]);
+  //     // setUnit([]);
+  //   } else {
+  //     message.error(res.err)
+  //   }
+  // }
+
+const handleManualAdd = async () => {
+  try {
+    const lessonData = {
+      number: number,
+      id: id,
+      name: name,
+      expectations: expectations,
+      activities: activities,
+      unit: unit,
+      standards: standards,
+      link: 'link.com',
+      created_by: 'Administrator', 
+      updated_by: 'Administrator', 
+    };
+    const res = await addLesson(lessonData);
     if (res.data) {
       console.log(res.data, "IT IS WORKING");
       addLessonToTable([res.data]);
-      message.success(
-        `${name} has been added to the roster successfully.`
-      )
+      message.success(`${name} has been added to the roster successfully.`);
       setName("");
       getTableData();
-      // setNewLesson([]);
-      // setUnit([]);
     } else {
-      message.error(res.err)
+      message.error(res.err);
     }
+  } catch (error) {
+    console.error('An error occurred while adding a lesson module:', error);
   }
-
-  // this is only for the table within ADD 
-  // REMOVE AFTER
-  // const columns = [
-  //   {
-  //     title: 'Lesson Name',
-  //     dataIndex: 'name',
-  //   },
-  //   {
-  //     title: 'Lesson ID',
-  //     dataIndex: 'id',
-  //   },
-  //   {
-  //     title: 'Lesson Standard',
-  //     dataIndex: 'lessonStandard',
-  //   },
-  //   {
-  //     title: 'Unit Name',
-  //     dataIndex: 'unitName',
-  //   },
-  //   {
-  //     title: 'Unit ID',
-  //     dataIndex: 'unitID',
-  //   },
-  //   {
-  //     title: 'Grade Level',
-  //     dataIndex: 'grade',
-  //   },
-  //   {
-  //     title: 'Activity 1',
-  //     dataIndex: "activity1",
-  //   }
-  // ]
-
-  // const data = lessons.map((lesson) => ({
-  //   name: lesson.name,
-  //   id: lesson.id,
-  //   lessonStandard: lesson.standards,
-  //   unitName: lesson.unit.name,
-  //   unitID: lesson.unit.id,
-  //   grade: lesson.unit.grade,
-  // }));
+};
 
   // CHECK THIS
-  const getTableData = async lessons => {
-    const tableData = await lessons.map((lesson, index) => {
-      return {
-        key: index,
-        name: lesson.name,
-      }
-    })
-    setTableData(tableData)
-    return tableData
-  }
-
-  // const handleOnDrop = async roster => {
-  //   // on file select, filter out bad data and set uploadedRoster and tableData
-  //   let badInput = false
-  //   let lessons = roster.filter(lesson => {
-  //     if (lesson.data.name) {
-  //       if (nameIsFormatted(lesson.data.name.trim())) return true
-  //       badInput = true
-  //     }
-  //     return false
-  //   })
-  //   lessons = await lessons.map(lesson => {
+  // const getTableData = async lessons => {
+  //   const tableData = await lessons.map((lesson, index) => {
   //     return {
-  //       name
+  //       key: index,
+  //       name: lesson.name,
   //     }
   //   })
-
-  //   const data = await getTableData(lessons)
-  //   setTableData(data)
+  //   setTableData(tableData)
+  //   return tableData
   // }
 
+  const getTableData = async (lessons) => {
+    const tableData = await lessons.map((lesson) => {
+      return {
+        key: lesson.id, 
+        name: lesson.name,
+      };
+    });
+    setTableData(tableData);
+    return tableData;
+  };
+  
 
   return (
     <div id="add-students">

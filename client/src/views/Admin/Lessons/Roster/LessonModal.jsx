@@ -61,7 +61,7 @@ export default function LessonModal({ linkBtn, lesson }) {
         <p id='label'>Activities:</p>
         {lessons.activities?.map( data => {
         return( 
-          <div> 
+          <div key={data.id}> 
           <p id='label-info'>ID: {data.id}</p>
           <p id='label-info'>{data.description}</p>
           </div>

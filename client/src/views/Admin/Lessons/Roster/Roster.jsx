@@ -13,59 +13,112 @@ export default function Roster() {
   const [lessons, setLessons] = useState([]);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await getLessonModuleAll();
+  //       console.log(res);
+  //       if (res.data) {
+  //         setLessons(res.data);
+  //       } else {
+  //         message.error(res.err);
+  //       }
+  //     } catch {}
+  //   };
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await getLessonModuleAll();
-        console.log(res);
-        if (res.data) {
-          setLessons(res.data);
-        } else {
-          message.error(res.err);
-        }
-      } catch {}
-    };
-    fetchData();
+    let data = [];
+    getLessonModuleAll().then((res) => {
+      if (res.data) {
+        const lessonmodule = res.data;
+        setLessons(lessonmodule);
+        lessonmodule.unit.forEach((lesson_unit) => {
+          data.push({
+            key: lesson_unit.id,
+            name: lesson_unit.name,
+            grade: lesson_unit.grade,
+            number: lesson_unit.number,
+          });
+        });
+        lessonmodule.activities.forEach((activity) => {
+          data.push({
+            key: activity.id,
+            lesson_module: activity.lesson_module,
+            number: activity.number,
+          });
+        });
+        setLessons(data);
+      } else {
+        message.error(res.err);
+      }
+    }).catch((error) => {
+      console.error("Error fetching lesson module data:", error);
+    });
   }, []);
 
+  // {
+  //   "number": 0,
+  //   "name": "string",
+  //   "expectations": "string",
+  //   "activities": [
+  //     "string"
+  //   ],
+  //   "unit": "string",
+  //   "standards": "string",
+  //   "link": "string",
+  //   "created_by": "string",
+  //   "updated_by": "string"
+  // }
+
   // UPDATE THIS
+  // const addLessonToTable = (lesson) => {
+  //   let newLessonData = [...lessons];
+  //   lesson.forEach((lessonmodule) =>
+  //   newLessonData.push({
+  //       key: lessonmodule.id,
+  //       name: lessonmodule.name,
+  //       expectations: lessonmodule.expectations,
+  //     })
+  //   );
+  //   setLessons(newLessonData);
+  // };
+
   const addLessonToTable = (lesson) => {
-    let newLessonData = [...lessons];
-    lesson.forEach((lessonmodule) =>
-    newLessonData.push({
+    setLessons((prevLessons) => [
+      ...prevLessons,
+      ...lesson.map((lessonmodule) => ({
         key: lessonmodule.id,
         name: lessonmodule.name,
         expectations: lessonmodule.expectations,
-        link: '',
-        activities: [],
-        unit: {
-          id: lessonmodule.unit.id,
-          grade: lessonmodule.unit.grade,
-          number: lessonmodule.unit.number,
-          name: lessonmodule.unit.name,
-          standards_description: lessonmodule.unit.standards_description,
-          standards_id: lessonmodule.unit.standards_id,
-        },
-      })
-    );
-    setLessons(newLessonData);
+      })),
+    ]);
   };
-
-  const handleDelete = async (key) => {
-    const dataSource = [...lessons];
-    setLessons(dataSource.filter((item) => item.key !== key));
-
-    const res = await deleteLesson(key);
-    if (res.data) {
-      message.success(`Successfully deleted student, ${res.data.name}.`);
-    } else {
-      message.error(res.err);
-    }
-  };
-
+  
   const handleBack = () => {
     navigate('/admin');
   };
+  
+  const handleDelete = async (record) => {
+    if (record && record.id) {
+      const lessonId = record.id;
+      const res = await deleteLesson(lessonId);
+      if (res.data) {
+        message.success(`${record.name} has been deleted successfully.`);
+        setLessons((prevLessons) =>
+        prevLessons.filter((lesson) => lesson.id !== record.id)
+      );
+      } else {
+        message.error(res.err);
+      }
+    } else {
+      message.error('An error occurred while deleting the lesson:', error);
+    }
+  };
+  
+
+
 
   return (
     <div>

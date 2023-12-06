@@ -376,11 +376,11 @@ export const deleteStudent = async (student) =>
   });
 
   // LESSON ADD/DELETE IMPLEMENTATION
-  export const addLesson = async (name) =>
+  export const addLesson = async (lessonData) =>
   makeRequest({
     method: POST,
     path: `${server}/lesson-modules`,
-    data: { name: name },
+    data: lessonData,
     auth: true,
     error: 'Failed to add lesson module.',
   });
@@ -394,10 +394,10 @@ export const deleteStudent = async (student) =>
     error: 'Failed to add lesson module to a classroom.',
   });
 
-export const deleteLesson = async (lesson) =>
+export const deleteLesson = async (key) =>
   makeRequest({
     method: DELETE,
-    path: `${server}/lesson-modules/${lesson}`,
+    path: `${server}/lesson-modules/${key}`,
     auth: true,
     error: 'Failed to delete lesson module.',
   });

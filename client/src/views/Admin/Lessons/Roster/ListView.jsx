@@ -1,8 +1,11 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Popconfirm } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import LessonModal from './LessonModal';
+import Roster from './Roster.jsx';
 
-export default function LessonListView({ lessons }) {
+export default function LessonListView({ lessons, handleDelete }) {
+
   const columns = [
     {
       title: 'Lesson Name',
@@ -43,24 +46,24 @@ export default function LessonListView({ lessons }) {
         />
       ),
     },
-
-    // {
-    //   title: 'Delete',
-    //   dataIndex: 'delete',
-    //   key: 'delete',
-    //   width: '10%',
-    //   align: 'right',
-    //   render: (text, record) =>
-    //     studentData.length >= 1 ? (
-    //       <Popconfirm
-    //         title={`Are you sure you want to delete all data for ${record.name}?`}
-    //         icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-    //         onConfirm={() => handleDelete(record.key)}
-    //       >
-    //         <button id='link-btn'> Delete</button>
-    //       </Popconfirm>
-    //     ) : null,
-    // },
+    {
+      title: 'Delete',
+      dataIndex: 'delete',
+      key: 'delete',
+      width: '10%',
+      align: 'right',
+      render: (text, record) =>
+        lessons.length >= 1 ? (
+          <Popconfirm
+            title={`Are you sure you want to delete all data for ${record.name} ${record.id} ?`}
+            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+            onConfirm={() => handleDelete(record)}
+          >
+            <button id='link-btn'> Delete</button>
+          </Popconfirm>
+          
+        ) : null,
+    },
   ];
 
   const data = lessons.map((lesson) => ({
