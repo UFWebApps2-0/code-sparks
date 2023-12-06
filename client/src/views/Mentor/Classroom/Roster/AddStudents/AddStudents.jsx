@@ -53,6 +53,7 @@ export default function AddStudents({ classroomId, addStudentsToTable }) {
       chosenCharacter ? chosenCharacter.emoji : null,
       classroomId
     )
+    console.log("STUDENT RES", res)
     if (res.data) {
       addStudentsToTable([res.data])
       message.success(

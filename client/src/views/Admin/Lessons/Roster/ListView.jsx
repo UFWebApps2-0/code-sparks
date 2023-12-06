@@ -43,6 +43,24 @@ export default function LessonListView({ lessons }) {
         />
       ),
     },
+
+    // {
+    //   title: 'Delete',
+    //   dataIndex: 'delete',
+    //   key: 'delete',
+    //   width: '10%',
+    //   align: 'right',
+    //   render: (text, record) =>
+    //     studentData.length >= 1 ? (
+    //       <Popconfirm
+    //         title={`Are you sure you want to delete all data for ${record.name}?`}
+    //         icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+    //         onConfirm={() => handleDelete(record.key)}
+    //       >
+    //         <button id='link-btn'> Delete</button>
+    //       </Popconfirm>
+    //     ) : null,
+    // },
   ];
 
   const data = lessons.map((lesson) => ({

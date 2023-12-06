@@ -22,7 +22,9 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
   try {
     switch (method) {
       case GET:
+        console.log("HERE");
         res = (await axios.get(path, config)).data;
+        
         break;
       case POST:
         res = (await axios.post(path, data, config)).data;
@@ -344,6 +346,33 @@ export const deleteStudent = async (student) =>
     path: `${server}/students/${student}`,
     auth: true,
     error: 'Failed to delete student.',
+  });
+
+  // LESSON ADD/DELETE IMPLEMENTATION
+  export const addLesson = async (name) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/lesson-modules`,
+    data: { name: name },
+    auth: true,
+    error: 'Failed to add lesson module.',
+  });
+
+  export const addClassroomLesson = async (lesson, classroom) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/lesson-modules`,
+    data: { lesson: lesson, classroom: classroom },
+    auth: true,
+    error: 'Failed to add lesson module to a classroom.',
+  });
+
+export const deleteLesson = async (lesson) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/lesson-modules/${lesson}`,
+    auth: true,
+    error: 'Failed to delete lesson module.',
   });
 
 export const updateActivityLevelTemplate = async (id, workspace, blocksList) =>
