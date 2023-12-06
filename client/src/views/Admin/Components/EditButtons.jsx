@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import "../Admin.less"
+import "./styles.less"
 const EditButtons = () => {
     const navigate = useNavigate();
 
@@ -15,19 +15,21 @@ const EditButtons = () => {
     const routeLessons = () => {
         navigate('/lessonlist');
     };
+    const routeManageStudents = () => {
+        navigate('/managestudents');
+      };
     const handleClick = () => {
         console.log('Button clicked!');
       };
+    
 
     return(
         <div>
-            <button className="custom-button" onClick={routeOrganizations}>Edit Organizations</button>
-            <br/>
+            <button className="first-button" onClick={routeOrganizations}>Edit Organizations</button>
             <button className="custom-button" onClick={routeClassrooms}>Edit Classrooms</button>
-            <br/>
             <button className="custom-button" onClick={routeTeachers}>Edit Teachers</button>
-            <br/>
             <button className="custom-button" onClick={routeLessons}>Edit Lessons</button>
+            <button className="custom-button" onClick={routeManageStudents}>Manage Students</button>
         </div>
     );
 };
