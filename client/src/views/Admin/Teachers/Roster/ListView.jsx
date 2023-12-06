@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table } from 'antd';
 import LessonModal from './LessonModal';
+import RemoveTeacherButton from './RemoveTeacherButton';
+
 
 export default function LessonListView({ teachers }) {
   const columns = [
@@ -29,6 +31,17 @@ export default function LessonListView({ teachers }) {
         <LessonModal
           teacher={record}
           linkBtn={true}
+        />
+      ),
+    },
+    {
+      title: 'Remove',
+      dataIndex: 'remove',
+      width: '10%',
+      align: 'center',
+      render: (_, record) => (
+        <RemoveTeacherButton
+          teacher={record}
         />
       ),
     },

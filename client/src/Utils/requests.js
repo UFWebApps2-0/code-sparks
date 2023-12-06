@@ -52,6 +52,26 @@ export const getActivities = async () =>
     error: 'Activities could not be retrieved.',
   });
 
+  export const addTeacher = async (firstName,lastName, school, user) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/mentors`,
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+      school: school,
+      user: user,
+    },
+    auth: true,
+    error: 'Failed to add teacher.',
+  });
+  export const deleteTeacher = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/mentors/${id}`,
+    auth: true,
+    error: 'Failed to delete teacher.',
+  });
 export const getTeachers = async () =>
   makeRequest({
     method: GET,

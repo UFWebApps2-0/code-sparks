@@ -3,6 +3,7 @@ import './Roster/Roster.less'
 import NavBar from "../../../components/NavBar/NavBar"
 import Sidebar from ".././Components/Sidebar"
 import Roster from "./Roster/Roster"
+import AddTeacherForm from "../Teachers/Roster/AddTeacherForm"
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
@@ -15,6 +16,9 @@ function TeacherList() {
       <Tabs defaultActiveKey="home">
           <TabPane tab="Teacher List" key="roster">
             <Roster/>
+          </TabPane>
+          <TabPane tab="Add Teacher" key="Add teacher">
+            <AddTeacherForm/>
           </TabPane>
         </Tabs>
       </div>
