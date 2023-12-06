@@ -185,3 +185,19 @@
     }
   }
 }
+
+// Additional Styles for Grade Column
+.ant-table-cell {
+  &.editable-cell {
+    position: relative;
+
+    .ant-form-item {
+      margin: 0;
+
+      &.grade {
+        width: 60px;
+        /* Adjust the width as needed */
+      }
+    }
+  }
+}

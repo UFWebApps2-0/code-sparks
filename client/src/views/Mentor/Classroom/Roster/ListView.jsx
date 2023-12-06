@@ -36,26 +36,24 @@ export default function ListView(props) {
         {editing ? (
           <Form.Item
             name={dataIndex}
-            style={{
-              margin: 0,
-            }}
+            style={{ margin: 0 }}
             rules={
-              title === 'Name'
-                ? [
-                    {
-                      required: true,
-                      pattern: new RegExp(
-                        '^([A-Za-z]+)\\s*([A-Za-z]*)\\s+([A-Za-z])\\.$'
-                      ),
-                      message: `Must be in format: "First L." or "First Middle L."!`,
-                    },
-                  ]
-                : []
+              title === 'Name' ? [
+                {
+                  required: true,
+                  pattern: new RegExp('^([A-Za-z]+)\\s*([A-Za-z]*)\\s+([A-Za-z])\\.$'),
+                  message: `Must be in format: "First L." or "First Middle L."!`,
+                },
+              ] : title === 'Grade' ? [{
+                required: true,
+                message: 'Please input a letter grade (A, B, C, D, F)!',
+                pattern: /^[A-F]$/,
+              }] : []
             }
           >
-            {title === 'Name' ? (
+            {title === 'Name' || title === 'Grade' ? (
               <Input />
-            ) : (
+            ) : title === 'Animal' ? (
               <div>
                 <Input
                   id='editAnimal'
@@ -81,6 +79,8 @@ export default function ListView(props) {
                   />
                 )}
               </div>
+            ) : (
+              children
             )}
           </Form.Item>
         ) : (
@@ -90,8 +90,6 @@ export default function ListView(props) {
     );
   };
 
-  // Use this function to trigger Input onChange Event.
-  //Otherwise it will not update the value you pick from Picker.
   const triggerInput = (elementName, selectedValue) => {
     var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
       window.HTMLInputElement.prototype,
@@ -120,6 +118,35 @@ export default function ListView(props) {
       align: 'left',
       sorter: {
         compare: (a, b) => (a.name < b.name ? -1 : 1),
+      },
+    },
+    {
+      title: 'Grade',
+      dataIndex: 'grade',
+      key: 'grade',
+      editable: true,
+      width: '10%',
+      align: 'left',
+      render: (_, record) => {
+        const editable = isEditing(record);
+        return editable ? (
+          <Form.Item
+            name="grade"
+            style={{ margin: 0 }}
+            initialValue={record.grade}
+            rules={[
+              {
+                required: true,
+                message: 'Please input a letter grade (A, B, C, D, F)!',
+                pattern: /^[A-F]$/,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        ) : (
+          record.grade // Display the grade if not in editing mode
+        );
       },
     },
     {
