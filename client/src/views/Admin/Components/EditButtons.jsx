@@ -8,7 +8,10 @@ const EditButtons = () => {
     };
     const routeClassrooms = () => {
         navigate('/classroomlist');
-      };
+    };
+    const routeWorkspaces = () => {
+        navigate('/workspacelist');
+    };
     const routeTeachers = () => {
         navigate('/teacherlist');
     };
@@ -30,6 +33,7 @@ const EditButtons = () => {
             <button className="custom-button" onClick={routeTeachers}>Edit Teachers</button>
             <button className="custom-button" onClick={routeLessons}>Edit Lessons</button>
             <button className="custom-button" onClick={routeManageStudents}>Manage Students</button>
+            <button className="custom-button" onClick={routeWorkspaces}>View Workspaces</button>
         </div>
     );
 };

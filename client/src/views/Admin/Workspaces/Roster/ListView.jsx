@@ -13,6 +13,10 @@ export default function LessonListView({ workspaces }) {
       dataIndex: 'id',
     },
     {
+        title: 'Description',
+        dataIndex: 'description',
+      },
+    {
       title: 'Details',
       dataIndex: 'view',
       width: '10%',
@@ -29,7 +33,7 @@ export default function LessonListView({ workspaces }) {
   const data = workspaces.map((workspace) => ({
     name: workspace.name,
     id: workspace.id,
-
+    description: workspace.description,
   }));
 
   return (
