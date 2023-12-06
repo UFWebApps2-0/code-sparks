@@ -13,85 +13,35 @@ export default function Roster() {
   const [lessons, setLessons] = useState([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await getLessonModuleAll();
-  //       console.log(res);
-  //       if (res.data) {
-  //         setLessons(res.data);
-  //       } else {
-  //         message.error(res.err);
-  //       }
-  //     } catch {}
-  //   };
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
-    let data = [];
-    getLessonModuleAll().then((res) => {
-      if (res.data) {
-        const lessonmodule = res.data;
-        setLessons(lessonmodule);
-        lessonmodule.unit.forEach((lesson_unit) => {
-          data.push({
-            key: lesson_unit.id,
-            name: lesson_unit.name,
-            grade: lesson_unit.grade,
-            number: lesson_unit.number,
-          });
-        });
-        lessonmodule.activities.forEach((activity) => {
-          data.push({
-            key: activity.id,
-            lesson_module: activity.lesson_module,
-            number: activity.number,
-          });
-        });
-        setLessons(data);
-      } else {
-        message.error(res.err);
-      }
-    }).catch((error) => {
-      console.error("Error fetching lesson module data:", error);
-    });
+    const fetchData = async () => {
+      try {
+        const res = await getLessonModuleAll();
+        console.log(res);
+        if (res.data) {
+          setLessons(res.data);
+        } else {
+          message.error(res.err);
+        }
+      } catch {}
+    };
+    fetchData();
   }, []);
-
-  // {
-  //   "number": 0,
-  //   "name": "string",
-  //   "expectations": "string",
-  //   "activities": [
-  //     "string"
-  //   ],
-  //   "unit": "string",
-  //   "standards": "string",
-  //   "link": "string",
-  //   "created_by": "string",
-  //   "updated_by": "string"
-  // }
-
-  // UPDATE THIS
-  // const addLessonToTable = (lesson) => {
-  //   let newLessonData = [...lessons];
-  //   lesson.forEach((lessonmodule) =>
-  //   newLessonData.push({
-  //       key: lessonmodule.id,
-  //       name: lessonmodule.name,
-  //       expectations: lessonmodule.expectations,
-  //     })
-  //   );
-  //   setLessons(newLessonData);
-  // };
 
   const addLessonToTable = (lesson) => {
     setLessons((prevLessons) => [
       ...prevLessons,
       ...lesson.map((lessonmodule) => ({
-        key: lessonmodule.id,
+        id: lessonmodule.id,
         name: lessonmodule.name,
         expectations: lessonmodule.expectations,
+        number: lessonmodule.number,
+        activities: lessonmodule.activities,
+        unit: lessonmodule.unit,
+        standards: lessonmodule.standards,
+        link: '',
+        created_by: 'Administrator', 
+        updated_by: 'Administrator', 
       })),
     ]);
   };
@@ -117,9 +67,6 @@ export default function Roster() {
     }
   };
   
-
-
-
   return (
     <div>
       <button id='home-back-btn' onClick={handleBack}>

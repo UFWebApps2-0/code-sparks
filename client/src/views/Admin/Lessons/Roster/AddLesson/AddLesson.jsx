@@ -13,7 +13,18 @@ export default function AddLesson({ addLessonToTable }) {
   const [standards, setStandards] = useState("");
   // const [tableData, setTableData] = useState([]) //CHECK THIS
   const [lessons, setLessons] = useState([]);
-  const [newLesson, setNewLesson] = useState([]);
+  const [newLesson, setNewLesson] = useState({
+    number: '',
+    id: '',
+    name: '',
+    expectations: '',
+    activities: '',
+    unit: '',
+    standards: '',
+    link: '',
+    created_by: 'Administrator', 
+    updated_by: 'Administrator', 
+  });
   // const [newUnit, setUnit] = useState([]);
 
   useEffect(() => {
@@ -30,7 +41,6 @@ export default function AddLesson({ addLessonToTable }) {
     fetchData();
   }, []);
 
-  const buttonRef = React.createRef()
 
   // const handleManualAdd = async () => {
   //   // CHECK THIS
@@ -60,23 +70,24 @@ export default function AddLesson({ addLessonToTable }) {
 const handleManualAdd = async () => {
   try {
     const lessonData = {
-      number: number,
-      id: id,
-      name: name,
-      expectations: expectations,
-      activities: activities,
-      unit: unit,
-      standards: standards,
-      link: 'link.com',
+      number: '',
+      id: '',
+      name: '',
+      expectations: '',
+      activities: '',
+      unit: '',
+      standards: '',
+      link: '',
       created_by: 'Administrator', 
       updated_by: 'Administrator', 
     };
-    const res = await addLesson(lessonData);
+    const res = await addLesson(newLesson);
+    console.log('response', res); // delete after
     if (res.data) {
       console.log(res.data, "IT IS WORKING");
       addLessonToTable([res.data]);
       message.success(`${name} has been added to the roster successfully.`);
-      setName("");
+      setNewLesson(lessonData);
       getTableData();
     } else {
       message.error(res.err);
@@ -86,36 +97,22 @@ const handleManualAdd = async () => {
   }
 };
 
-  // CHECK THIS
-  // const getTableData = async lessons => {
-  //   const tableData = await lessons.map((lesson, index) => {
-  //     return {
-  //       key: index,
-  //       name: lesson.name,
-  //     }
-  //   })
-  //   setTableData(tableData)
-  //   return tableData
-  // }
-
-  const getTableData = async (lessons) => {
-    const tableData = await lessons.map((lesson) => {
-      return {
-        key: lesson.id, 
-        name: lesson.name,
-      };
-    });
-    setTableData(tableData);
-    return tableData;
-  };
-  
+  const getTableData = async () => {
+    try {
+      let lessonData = await getLessonModuleAll();
+      lessonData = lessonData.data;
+      setLessons(lessonData);
+    } catch (error) {
+      console.error('Error fetching updated lesson data:', error);
+    }
+  }
 
   return (
     <div id="add-students">
       <div id="manual-input">
         <h3>Manual Input:</h3>
         <p>
-          Input the name you want for a new Lesson Module here:
+          Input all required information for a new Lesson Module.
         </p>
         <form>
           <input
@@ -181,12 +178,12 @@ const handleManualAdd = async () => {
               title={() => "Review your current lesson module:"}
             /> */}
       <div>
-        <h3>Add other Stuff Here:</h3>
+        {/* <h3>Add other Stuff Here:</h3> */}
         <p>
-          something something something
+          add important foot notes here
         </p>
-        <br />
       </div>
     </div>
   )
-}
+};
+
