@@ -55,7 +55,7 @@ export default function LessonListView({ lessons, handleDelete }) {
       render: (text, record) =>
         lessons.length >= 1 ? (
           <Popconfirm
-            title={`Are you sure you want to delete all data for ${record.name} ${record.id} ?`}
+            title={`Are you sure you want to delete all data for ${record.name}?`}
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
             onConfirm={() => handleDelete(record)}
           >

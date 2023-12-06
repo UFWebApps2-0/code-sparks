@@ -128,7 +128,7 @@ const handleManualAdd = async () => {
             name="name"
             placeholder="Lesson Module Name"
           />
-          {/* <input
+          <input
             type="text"
             value={id}
             onChange={e => {
@@ -140,34 +140,34 @@ const handleManualAdd = async () => {
           />
           <input
             type="text"
-            value={standard}
+            value={number}
             onChange={e => {
-              setStandard(e.target.value)
+              setNumber(e.target.value)
             }}
-            id="standard"
-            name="standard"
-            placeholder="Lesson Module Standard"
+            id="number"
+            name="number"
+            placeholder="Lesson Module Number"
           />
           <input
             type="text"
-            value={unitID}
+            value={expectations}
             onChange={e => {
-              setUnitID(e.target.value)
+              setExpectations(e.target.value)
             }}
-            id="unitID"
-            name="unitID"
-            placeholder="Lesson Unit ID"
+            id="expectations"
+            name="expectations"
+            placeholder="Lesson Expectations"
           />
           <input
             type="text"
-            value={unitName}
+            value={standards}
             onChange={e => {
-              setUnitName(e.target.value)
+              setStandards(e.target.value)
             }}
-            id="unitName"
-            name="unitName"
-            placeholder="Lesson Unit Name"
-          /> */}
+            id="standards"
+            name="standards"
+            placeholder="Lesson Standards"
+          />
           <br />
           <input type="button" value="Add Lesson" onClick={handleManualAdd} />
         </form>
