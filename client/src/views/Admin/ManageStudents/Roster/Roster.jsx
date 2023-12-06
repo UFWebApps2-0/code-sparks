@@ -1,7 +1,7 @@
 // imported and edited this from '/Mentor/Classroom/Roster'
 
 import React, { useEffect, useState } from 'react';
-import { getAllStudents } from '../../../../Utils/requests';
+import { getAllStudents, deleteStudent } from '../../../../Utils/requests';
 import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
 import './Roster.less';
 import ListView from './ListView';
@@ -30,10 +30,37 @@ export default function Roster() {
 
     fetchData();
   }, []);
+  const addStudentToTable = (student) => {
+    setStudents((prevStudents) => [
+      ...prevStudents,
+      ...student.map((studentinfo) => ({
+        key: studentinfo.id,
+        name: studentinfo.name,
+        expectations: studentinfo.expectations,
+      })),
+    ]);
+  };
 
   const handleBack = () => {
     navigate('/admin');
   };
+  const handleDelete = async (record) => {
+    if (record && record.id) {
+      const studentId = record.id;
+      const res = await deleteStudent(studentId);
+      if (res.data) {
+        message.success(`${record.name} has been deleted successfully.`);
+        setStudents((prevStudents) =>
+        prevStudents.filter((student) => student.id !== record.id)
+      );
+      } else {
+        message.error(res.err);
+      }
+    } else {
+      message.error('An error occurred while deleting the student:', error);
+    }
+  };
+  
 
   return (
     <div>
@@ -42,8 +69,10 @@ export default function Roster() {
       </button>
       <MentorSubHeader
         title={'Students'}
+        addStudentToTable={addStudentToTable}
       />
-      <ListView students={students} />
+      <ListView students={students}
+      handleDelete={handleDelete} />
     </div>
   );
 }

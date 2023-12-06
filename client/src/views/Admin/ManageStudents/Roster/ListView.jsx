@@ -1,8 +1,11 @@
 import React from 'react';
-import { Table } from 'antd';
 import LessonModal from './LessonModal';
+import { Table, Popconfirm } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+//import RemoveStudentButton from './RemoveStudentButton';
 
-export default function LessonListView({ students }) {
+
+export default function LessonListView({ students , handleDelete }) {
   const columns = [
     {
       title: 'Name',
@@ -32,6 +35,35 @@ export default function LessonListView({ students }) {
         />
       ),
     },
+    {/*
+      title: 'Remove',
+      dataIndex: 'remove',
+      width: '10%',
+      align: 'center',
+      render: (_, record) => (
+        <RemoveStudentButton
+          student={record}
+        />
+      ),
+      */},
+      {
+        title: 'Delete',
+        dataIndex: 'delete',
+        key: 'delete',
+        width: '10%',
+        align: 'right',
+        render: (text, record) =>
+          students.length >= 1 ? (
+            <Popconfirm
+              title={`Are you sure you want to delete all data for ${record.name}?`}
+              icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+              onConfirm={() => handleDelete(record)}
+            >
+              <button id='link-btn'> Delete</button>
+            </Popconfirm>
+            
+          ) : null,
+      },
   ];
 
   const data = students.map((student) => ({
