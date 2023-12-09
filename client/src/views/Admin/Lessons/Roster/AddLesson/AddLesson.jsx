@@ -3,6 +3,14 @@ import React, { useState, useEffect } from "react"
 import { addLesson, getLessonModuleAll } from "../../../../../Utils/requests"
 import "./AddLesson.less"
 
+// work in progress
+
+/* 
+realized that the issue was my table and get Strapi data needed 
+ALL fields to be filled, will need to adjust for fields that
+are not given but will still add to table. 
+*/
+
 export default function AddLesson({ addLessonToTable }) {
   const [name, setName] = useState("");
   const [id, setID] = useState("");
