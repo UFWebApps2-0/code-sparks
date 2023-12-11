@@ -1,6 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
+// similar to classrooms, each organization pulled from strapi gets sent through this function to have its data displayed. The output 
+// will then be its name, id, county, state, list of mentors, number of classrooms, and each classrooms name. I use two maps as seen
+// below to accomplish this.
 function OrganizationCard({ organization }) {
   return (
     <Card>

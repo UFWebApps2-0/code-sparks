@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Roster() {
   const navigate = useNavigate();
-
   const [workspaces, setWorkspaces] = useState([]);
 
+  // again, this function calls the asynchronous function and stores the data in the 'workspaces' variable to be used throughout 
+  // the codes
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,6 +33,7 @@ export default function Roster() {
     navigate('/admin');
   };
 
+  // this roster file is called by the workspaceList file to reference the listView file which defines and displays the actual data
   return (
     <div>
       <button id='home-back-btn' onClick={handleBack}>

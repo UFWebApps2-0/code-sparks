@@ -6,7 +6,8 @@ import Roster from "./Roster/Roster"
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
-
+// this is the main file for workspaces; it references Roster.jsx, which references all the other relevant files for displaying the 
+// data for each workspace.
 function WorkspaceList() {
   return(
     <div>
