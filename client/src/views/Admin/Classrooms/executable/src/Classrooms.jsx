@@ -1,17 +1,17 @@
 import './Classrooms.css';
 import React, { useEffect, useState } from 'react';
-import { getAllClassrooms } from '../../../../../Utils/requests';
+import { getAllClassrooms } from '../../../../../Utils/requests'; // connects to strapi database
 import ClassroomCard from './ClassroomCard';
 import NavBar from "../../../../../components/NavBar/NavBar"
 import Sidebar from "../../../Components/Sidebar"
 import { message } from 'antd'; // Import message from Ant Design
 
 function Classrooms() {
-  const [classrooms, setClassrooms] = useState([]);
+  const [classrooms, setClassrooms] = useState([]); // stores classrooms data from strapi using useState
   const [newStudentName, setNewStudentName] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => { // asynchronous function which calls the get function imported for classrooms
       try {
         const res = await getAllClassrooms();
         console.log(res);
@@ -60,7 +60,8 @@ function Classrooms() {
       return updatedClassrooms;
     });
   };
-
+  // In the return statement, first it displays the header and then uses a map to iterate through each classroom and call the card 
+  // file to display its contents
   return (
     <div className="container nav-padding">
       <NavBar />

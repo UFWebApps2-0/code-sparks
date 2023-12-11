@@ -6,8 +6,6 @@ function WorkspaceCard({ workspace }) {
     <Card>
       <Card.Body>
         <Card.Title>{workspace.name}</Card.Title>
-
-
       </Card.Body>
     </Card>
   );

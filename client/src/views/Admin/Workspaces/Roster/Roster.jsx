@@ -13,11 +13,10 @@ export default function Roster() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        //variable to hold the json file returned by getTeachers
         const res = await getAuthorizedWorkspaces();
         console.log(res);
         if (res.data) {
-            setWorkspaces(res.data);//setting teachers variable to be res.data
+            setWorkspaces(res.data);
         } else {
           console.error(res.err);
         }
