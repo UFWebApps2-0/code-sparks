@@ -9,12 +9,12 @@ import {Tabs} from 'antd';
 const { TabPane } = Tabs;
 
 function Organizations() {
-  const [organizations, setOrganizations] = useState([]);
+  const [organizations, setOrganizations] = useState([]); // stores school data from strapi into 'organizations' using useState
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await getSchools();
+        const res = await getSchools(); // asynchronous function I created to pull the strapi data for schools 
         console.log(res);
         if (res.data) {
           setOrganizations(res.data);
@@ -27,6 +27,8 @@ function Organizations() {
     fetchData();
   }, []);
 
+  // In the return statement, first it displays the header and then uses a map to iterate through each organization and call the 
+  // card file to display its contents
   return(
     <div className="container nav-padding">
         <NavBar/>
