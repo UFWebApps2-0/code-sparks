@@ -9,12 +9,14 @@
     "AccountInfo": "/account",
     "ContentCreatorDashboard": "/ccdashboard",
     "ResearcherDashboard": "/report",
-    "BugReport": "/bugreport"
+    "BugReport": "/bugreport",
+    "Discussions": "/discussions",
+    "Notifications": "/notifications"
   },
   "users": {
     "DefaultUser": ["Home", "TeacherLogin", "Sandbox", "About"],
     "Mentor": ["Dashboard", "AccountInfo", "SignOut", "Sandbox", "BugReport"],
-    "Student": ["SignOut"],
+    "Student": ["SignOut", "Notifications"],
     "ContentCreator": [
       "ContentCreatorDashboard",
       "AccountInfo",

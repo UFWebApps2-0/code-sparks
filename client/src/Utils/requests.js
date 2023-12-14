@@ -43,6 +43,13 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
 
   return { data: res, err: err };
 };
+export const getAllClassroomLessons = async (teacherId) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/lessons`,
+    auth: true,
+    error: 'Could not retrieve lessons for the teacher.',
+  });
 
 export const getActivities = async () =>
   makeRequest({
@@ -167,6 +174,21 @@ export const createActivity = async (activity, learningStandard) =>
     },
     auth: true,
     error: 'Login failed.',
+  });
+
+export const createDiscussion = async (title, description, learningStandard, date, interval) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/discussions`,
+    data: {
+      lesson_module: learningStandard,
+      Title: title,
+      Description: description,
+      Due_Date : date, 
+      Reminder_Interval : interval,
+    },
+    auth: true,
+    error: 'Login failed. - createDiscussion',
   });
 
 export const setEnrollmentStatus = async (id, enrolled) =>
@@ -476,7 +498,8 @@ export const updateActivityDetails = async (
   link,
   scienceComponents,
   makingComponents,
-  computationComponents
+  computationComponents,
+  dueDate
 ) =>
   makeRequest({
     method: PUT,
@@ -491,10 +514,27 @@ export const updateActivityDetails = async (
       scienceComponents,
       makingComponents,
       computationComponents,
+      dueDate
     },
     auth: true,
     error: 'Failed to update unit',
   });
+
+export const updateDiscussionDetails = async ( // update discussion
+    id,
+    Title,
+    Description,
+  ) =>
+    makeRequest({
+      method: PUT,
+      path: `${server}/discussions/${id}`,
+      data: {
+        Title,
+        Description,
+      },
+      auth: true,
+      error: 'Failed to update discussion',
+    });
 
 export const getLessonModuleActivities = async (lsId) =>
   makeRequest({
@@ -502,6 +542,14 @@ export const getLessonModuleActivities = async (lsId) =>
     path: `${server}/activities?lesson_module.id=${lsId}`,
     auth: true,
     error: 'Activity cannot be retrived',
+  });
+
+export const getLessonModuleDiscussions = async (lsId) => // get discussions
+  makeRequest({
+    method: GET,
+    path: `${server}/discussions?lesson_module.id=${lsId}`,
+    auth: true,
+    error: 'Discussion cannot be retrived',
   });
 
   export const getActivityLevels = async (lsId) =>
@@ -518,6 +566,14 @@ export const getActivity = async (id) =>
     path: `${server}/activities/${id}`,
     auth: true,
     error: 'Activity cannot be retrived',
+  });
+
+export const getDiscussion = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/discussions/${id}`,
+    auth: true,
+    error: 'Discussion cannot be retrived',
   });
 
 export const forgetPassword = async (email) =>
