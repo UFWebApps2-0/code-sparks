@@ -102,9 +102,18 @@ The production environment is a Heroku app. It is composed of a web dyno, compil
   * The compile dyno runs `compile`
 
 #### Running
+Access STRAPI Admin Page:
 
-`casmm` is automatically built from the latest commits to `master`. Heroku runs the container orchestration from there.
+Open the STRAPI admin page and log in using these credentials:
+Email: superadmin@mail.com
+Password: TN9q6RZhDaw6
+Create the role "Admin".
+Create a temporary Admin user.
+Log in as Admin:
 
+Open the local website.
+Click the three lines at the top right in the navigation bar.
+Click user login and use the same credentials as the temporary Admin user.
 <br/>
 
 ## Maintenance
