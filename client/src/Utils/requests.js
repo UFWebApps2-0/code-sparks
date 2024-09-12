@@ -112,6 +112,14 @@ export const getMentor = async () =>
     error: 'Your classroom manager information could not be retrieved.',
   });
 
+  export const getMentorProfilePicture = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/classroom-managers/me/profile_picture`,
+    auth: true,
+    error: 'Your classroom manager information could not be retrieved.',
+  });
+
 export const getClassroom = async (id) =>
   makeRequest({
     method: GET,
@@ -146,6 +154,14 @@ export const getStudent = async (id) =>
     error: 'Student info could not be retrieved.',
   });
 
+  export const getCurrentStudent = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/students/me`,
+    auth: true,
+    error: 'Student info could not be retrieved.',
+  });
+
 export const postJoin = async (code, ids) =>
   makeRequest({
     method: POST,
@@ -167,6 +183,22 @@ export const createActivity = async (activity, learningStandard) =>
     },
     auth: true,
     error: 'Login failed.',
+  });
+
+export const createChallenge = async (mentor_id, name, description, badge_id) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/challenges`,
+    data: {
+      mentor: {
+        id: mentor_id,
+      },
+      name: name,
+      description: description,
+      badge_id: badge_id,
+    },
+    auth: true,
+    error: 'Challenge creation failed',
   });
 
 export const setEnrollmentStatus = async (id, enrolled) =>
@@ -313,6 +345,28 @@ export const addStudent = async (name, character, classroom) =>
     error: 'Failed to add student.',
   });
 
+  export const updateTeacherProfilePicture = async (id, base64profile) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/mentors/${id}`,
+    data: {
+      profile_picture: base64profile,
+    },
+    auth: true,
+    error: 'Failed to update Profile.',
+  });
+
+  export const updateStudentProfilePicture = async (id, base64profile) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/students/${id}`,
+    data: {
+      profile_picture: base64profile,
+    },
+    auth: true,
+    error: 'Failed to update Profile.',
+  });
+
 export const addStudents = async (students, classroom) =>
   makeRequest({
     method: POST,
@@ -353,6 +407,33 @@ export const updateActivityTemplate = async (id, workspace) =>
     auth: true,
     error: 'Failed to update the activity template for the activity',
   });
+
+// Note: Currently this does not allow for updating the teacher associated with a challenge, as each teacher should only own challenges they themselves create
+export const updateChallengeDetails = async (id, name, description, badge_id) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/challenges/${id}`,
+    data: {
+      name: name,
+      description: description,
+      badge_id: badge_id,
+    },
+    auth: true,
+    error: 'Failed to update the challenge details',
+});
+
+export const updateChallengeActivity = async (id, activity_id) =>
+  makeRequest({
+    method: PUT,
+    path: `${server}/challenges/${id}`,
+    data: {
+      activity: {
+        id: activity_id,
+      },
+    },
+    auth: true,
+    error: 'Failed to update the challenge activity',
+});
 
 export const deleteActivity = async (id) =>
   makeRequest({
@@ -671,4 +752,12 @@ export const getClassroomWorkspace = async (id) =>
     path: `${server}/classroom/workspaces/${id}`,
     auth: true,
     error: 'Unable to retrive classroom workspaces',
+  });
+
+export const getChallengeDetails = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/challenges/${id}`,
+    auth: true,
+    error: 'Unable to retrive challenge details',
   });
