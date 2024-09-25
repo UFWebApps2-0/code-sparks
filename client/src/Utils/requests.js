@@ -22,7 +22,9 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
   try {
     switch (method) {
       case GET:
+        console.log("HERE");
         res = (await axios.get(path, config)).data;
+        
         break;
       case POST:
         res = (await axios.post(path, data, config)).data;
@@ -52,6 +54,26 @@ export const getActivities = async () =>
     error: 'Activities could not be retrieved.',
   });
 
+  export const addTeacher = async (firstName,lastName, school, user) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/mentors`,
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+      school: school,
+      user: user,
+    },
+    auth: true,
+    error: 'Failed to add teacher.',
+  });
+  export const deleteTeacher = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/mentors/${id}`,
+    auth: true,
+    error: 'Failed to delete teacher.',
+  });
 export const getTeachers = async () =>
   makeRequest({
     method: GET,
@@ -59,6 +81,21 @@ export const getTeachers = async () =>
     auth: true,
     error: 'Teachers could not be retrieved.',
   });
+  export const getTeacher = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/mentors/${id}`,
+    auth: true,
+    error: 'Failed to retrieve learning standard.',
+  });
+
+export const getAdmin = async () =>
+makeRequest({
+  method: GET,
+  path: `${server}/admin`,
+  auth: true,
+  error: 'Your admin information could not be retrieved.',
+});
 
 export const getAllClassrooms = async () =>
   makeRequest({
@@ -67,6 +104,14 @@ export const getAllClassrooms = async () =>
     auth: true,
     error: 'Classrooms could not be retrieved.',
   });
+
+export const getSchools = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/schools`,
+    auth: true,
+    error: 'Schools could not be retrieved.',
+});
 
 export const getAllStudents = async () =>
   makeRequest({
@@ -328,6 +373,33 @@ export const deleteStudent = async (student) =>
     path: `${server}/students/${student}`,
     auth: true,
     error: 'Failed to delete student.',
+  });
+
+  // LESSON ADD/DELETE IMPLEMENTATION
+  export const addLesson = async (lessonData) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/lesson-modules`,
+    data: lessonData,
+    auth: true,
+    error: 'Failed to add lesson module.',
+  });
+
+  export const addClassroomLesson = async (lesson, classroom) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/lesson-modules`,
+    data: { lesson: lesson, classroom: classroom },
+    auth: true,
+    error: 'Failed to add lesson module to a classroom.',
+  });
+
+export const deleteLesson = async (key) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/lesson-modules/${key}`,
+    auth: true,
+    error: 'Failed to delete lesson module.',
   });
 
 export const updateActivityLevelTemplate = async (id, workspace, blocksList) =>

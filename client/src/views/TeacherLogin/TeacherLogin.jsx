@@ -35,7 +35,9 @@ export default function TeacherLogin() {
           navigate('/ccdashboard');
         } else if (response.data.user.role.name === 'Researcher') {
           navigate('/report');
-        } else {
+        } else if (response.data.user.role.name === 'Admin') {
+          navigate('/admin');
+        }else {
           navigate('/dashboard');
         }
       })

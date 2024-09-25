@@ -1,4 +1,20 @@
 # CaSMM
+## Deployment
+There are many branches on our GitHub Repository, but the Develop branch is the main branch where all our working features are currently located. The steps to launch our project is:
+1. clone the repository
+2. download Docker
+3. install Node and Yarn
+4. Run yarn from /client
+5. Run yarn start from /client
+6. Run npm install react-bootstrap bootstrap from /client
+7. Run docker compose up from /
+8. Open up the STRAPI admin page and login using these credentials:
+  superadmin@mail.com
+  TN9q6RZhDaw6
+9. create the role “ Admin”
+10. Create a temporary Admin user
+11. Open local website. click the three lines at the top right in the navigation bar. click user login and use the same credentials as the temporary Admin user. 
+Hooray! You have now logged in as an Administrator and can see the Admin pages. 
 
 > Computation and Science Modeling through Making
 
@@ -86,9 +102,18 @@ The production environment is a Heroku app. It is composed of a web dyno, compil
   * The compile dyno runs `compile`
 
 #### Running
+Access STRAPI Admin Page:
 
-`casmm` is automatically built from the latest commits to `master`. Heroku runs the container orchestration from there.
+Open the STRAPI admin page and log in using these credentials:
+Email: superadmin@mail.com
+Password: TN9q6RZhDaw6
+Create the role "Admin".
+Create a temporary Admin user.
+Log in as Admin:
 
+Open the local website.
+Click the three lines at the top right in the navigation bar.
+Click user login and use the same credentials as the temporary Admin user.
 <br/>
 
 ## Maintenance
